@@ -11,6 +11,10 @@ package starter;
 public class ColorType {
 	private int color;
 	
+	ColorType(int num){
+		color = num;
+	}
+	
 	public void setColor(int num) {
 		this.color = num;
 	}

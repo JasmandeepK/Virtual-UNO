@@ -3,6 +3,9 @@ package starter;
 public class CardValue {
 	private int value;
 	
+	CardValue(int num) {
+		value = num;
+	}
 	public void setValue(int num) {
 		this.value = num;
 	}
