@@ -6,7 +6,7 @@ public class Player {
 	int playerNumber, numberOfCards;
 	Player nextPlayer;
 	Player previousPlayer;
-	//Max number of cards = 20
+	//Max number of cards = 25
 	UnoCard playerHand[] = new UnoCard[25];
 	private Scanner x = new Scanner(System.in);
 	//Constructor
@@ -23,12 +23,12 @@ public class Player {
 		System.out.println();
 	}
 	
-	//Add a card to player Deck
-	public void addToDeck(UnoCard c){
+	//Add card to player hand
+	public void addToHand(UnoCard c){
 		numberOfCards++;
 		playerHand[numberOfCards-1] = c;
 	}
-	public UnoCard removeFromDeck(int index){
+	public UnoCard removeFromHandk(int index){
 		UnoCard toReturn = playerHand[index];
 		for(;index<numberOfCards;index++){
 			if(index==numberOfCards-1){
