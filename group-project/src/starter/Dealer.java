@@ -32,18 +32,25 @@ class Dealer {
 	
 	public static void main(String[] args) {
 		Dealer dealerDeck = new Dealer(108);
+		UnoCard c;
 		dealerDeck.shuffle();
+		for(int i = 0; i < 110; i++) {
+			 c = dealerDeck.deal();
+			 System.out.println(c.getCardValue().getValue());
+			 System.out.println(c.getColorType().getColor());
+		}
 	}
 	
 	public void shuffle() {
         Random randomNumber = new Random();
         //randomizing the deck
-        for (int i = 0; i <= 107; i++) {
+        for (int i = 0; i < 108; i++) {
              int rand = randomNumber.nextInt(107) + 1;
              UnoCard temp = deck[i];
              deck[i] = deck[rand];
              deck[rand] = temp;
         }
+        next = 1;
    }
 	
 	 public UnoCard deal() { // Deals one card at a time
