@@ -3,6 +3,7 @@ import java.util.*;
 
 class Dealer {
 	private UnoCard[] deck;
+	private int next;
 	
 	public Dealer(int num) {
 		deck = new UnoCard[num];
@@ -44,4 +45,13 @@ class Dealer {
              deck[rand] = temp;
         }
    }
+	
+	 public UnoCard deal() { // Deals one card at a time
+         if (next > 107) { // If deck has no cards
+              shuffle();
+         }
+         UnoCard card = deck[next];
+         next++;
+         return card;
+    }
 }
