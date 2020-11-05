@@ -4,9 +4,9 @@ public class UnoCard {
 	ColorType type;
 	CardValue value;
 	
-	public UnoCard(ColorType a, CardValue b) {
-		type = a;
-		value = b;
+	public UnoCard(int a, int b) {
+		type = new ColorType(a);
+		value = new CardValue(b);
 	}
 	
 	public ColorType getColorType() {
