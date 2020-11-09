@@ -27,6 +27,9 @@ public class Player {
 		}
 		player1.displayPlayerHand();
 		player2.displayPlayerHand();
+		player1.removeFromHand(5);
+		System.out.println("Should print player 1's deck with the sixth card removed");
+		player1.displayPlayerHand();
 	}
 	
 	Player(int playerNum){
@@ -47,7 +50,7 @@ public class Player {
 		numberOfCards++;
 		playerHand[numberOfCards-1] = c;
 	}
-	public UnoCard removeFromHandk(int index){
+	public UnoCard removeFromHand(int index){
 		UnoCard toReturn = playerHand[index];
 		for(;index<numberOfCards;index++){
 			if(index==numberOfCards-1){

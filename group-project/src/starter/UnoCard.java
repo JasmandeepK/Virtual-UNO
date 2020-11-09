@@ -22,14 +22,4 @@ public class UnoCard {
 	public CardValue getCardValue() {
 		return value;
 	}
-
-	public int cardColorCodeConvert() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int cardTypeCodeConvert() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
