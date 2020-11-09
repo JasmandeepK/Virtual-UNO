@@ -10,6 +10,25 @@ public class Player {
 	UnoCard playerHand[] = new UnoCard[25];
 	private Scanner x = new Scanner(System.in);
 	//Constructor
+	
+	public static void main(String[] args) {
+		Player player1 = new Player(0);
+		Player player2 = new Player(1);
+		Dealer dealerDeck = new Dealer(108);
+		dealerDeck.shuffle();
+		UnoCard c;
+		for(int i = 0; i < 7; i++) {
+			c = dealerDeck.deal();
+			player1.addToHand(c);
+		}
+		for(int i = 7; i < 14; i++) {
+			c = dealerDeck.deal();
+			player2.addToHand(c);
+		}
+		player1.displayPlayerHand();
+		player2.displayPlayerHand();
+	}
+	
 	Player(int playerNum){
 		playerName = "";
 		playerNumber = playerNum;
@@ -46,8 +65,7 @@ public class Player {
 		
 		System.out.println(playerName+"'s cards:");
 		for(int i=0;i<numberOfCards;i++){
-			System.out.println((i+1)+". "+playerHand[i].cardColorCodeConvert()+" "+playerHand[i].cardTypeCodeConvert());
-
+			System.out.println((i+1)+". "+playerHand[i].getColorType().getColor()+" "+playerHand[i].getCardValue().getValue());
 			
 		}
 	}
