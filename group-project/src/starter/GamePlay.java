@@ -2,6 +2,8 @@ package starter;
 
 //actionCard -- specialCard -- winCondition -- validation -- player1Turn -- player2Turn
 
+//Test
+
 public class GamePlay {
 	
 	//Constructor
