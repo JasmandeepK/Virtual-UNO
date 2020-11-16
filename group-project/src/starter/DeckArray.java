@@ -2,9 +2,6 @@ package starter;
 import java.util.ArrayList;
 import javax.smartcardio.Card;
 
-
-
-
 class Deck {
 
 	ArrayList<Card> pile;
