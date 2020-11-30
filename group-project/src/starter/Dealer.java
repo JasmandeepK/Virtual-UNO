@@ -4,15 +4,16 @@ import java.util.*;
 class Dealer {
 	private UnoCard[] deck;
 	private int next;
+	private Queue queue = new Queue(108);
 	
 	public Dealer(int num) {
 		deck = new UnoCard[num];
 		int start = 0;
 		for(int i = 0; i < 4; i ++) {
 			for(int j = 0; j < 13; j++) {
-				if(j == 0) {	// there is only one 0 card value per color
-					deck[start] = new UnoCard(i,j);
-					start++;
+				if(j == 0) {	// there is only one 0 card value per color	
+				deck[start] = new UnoCard(i,j);
+				start++;
 				}
 				else {	//there are 2 of card values for each number except for wild cards
 					deck[start] = new UnoCard(i,j);
@@ -36,29 +37,25 @@ class Dealer {
 		dealerDeck.shuffle();
 		for(int i = 0; i < 110; i++) {
 			 c = dealerDeck.deal();
-			 System.out.println(c.getCardValue().getValue());
-			 System.out.println(c.getColorType().getColor());
+			 System.out.println((i+1) + "." + c.getCardValue().getValue() + 
+					 " " + c.getColorType().getColor());
 		}
 	}
 	
 	public void shuffle() {
         Random randomNumber = new Random();
-        //randomizing the deck
+        //Randomise the deck
         for (int i = 0; i < 108; i++) {
              int rand = randomNumber.nextInt(107) + 1;
-             UnoCard temp = deck[i];
-             deck[i] = deck[rand];
-             deck[rand] = temp;
+             queue.enqueue(deck[rand]);
         }
         next = 1;
    }
 	
 	 public UnoCard deal() { // Deals one card at a time
-         if (next > 107) { // If deck has no cards
+         if (Queue.isEmpty(queue)) { // If deck has no cards 
               shuffle();
          }
-         UnoCard card = deck[next];
-         next++;
-         return card;
+         return queue.dequeue();
     }
 }

@@ -9,6 +9,11 @@ public class Queue {
 	
 	public static void main(String[] args) {
 		Queue queue = new Queue(5);
+		
+		if (isEmpty(queue)) {
+			System.out.println("good");
+		}
+		
 		queue.enqueue(new UnoCard(1,4));
 		queue.enqueue(new UnoCard (2,6));
 		queue.enqueue(new UnoCard (3,8));
@@ -30,7 +35,7 @@ public class Queue {
 		return (queue.size == queue.capacity);
 	}
 	
-	public boolean isEmpty (Queue queue) {
+	public static boolean isEmpty (Queue queue) {
 		return (queue.size == 0);
 	}
 	
