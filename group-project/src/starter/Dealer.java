@@ -3,7 +3,6 @@ import java.util.*;
 
 class Dealer {
 	private UnoCard[] deck;
-	private int next;
 	private Queue queue = new Queue(108);
 	
 	public Dealer(int num) {
@@ -49,7 +48,6 @@ class Dealer {
              int rand = randomNumber.nextInt(107) + 1;
              queue.enqueue(deck[rand]);
         }
-        next = 1;
    }
 	
 	 public UnoCard deal() { // Deals one card at a time
