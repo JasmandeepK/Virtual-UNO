@@ -21,7 +21,7 @@ public class Player {
 			c = dealerDeck.deal();
 			player1.addToHand(c);
 		}
-		for(int i = 7; i < 14; i++) {
+		for(int i = 0; i < 7; i++) {
 			c = dealerDeck.deal();
 			player2.addToHand(c);
 		}
