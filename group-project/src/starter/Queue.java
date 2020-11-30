@@ -5,36 +5,36 @@ import javax.smartcardio.Card;
 public class Queue {
 	int front, rear, size;
 	int capacity;
-	int array[];
+	UnoCard[] array;
 	
 	public static void main(String[] args) {
 		Queue queue = new Queue(5);
-		queue.enqueue(1);
-		queue.enqueue(2);
-		queue.enqueue(3);
-		queue.enqueue(4);
+		queue.enqueue(new UnoCard(1,4));
+		queue.enqueue(new UnoCard (2,6));
+		queue.enqueue(new UnoCard (3,8));
+		queue.enqueue(new UnoCard (4,10));
 		
-		System.out.println (queue.dequeue() + " dequeued form queque");
-		System.out.println (queue.front() + " from the front of queue");
-		System.out.println (queue.rear() + " from the back of queue");
+		System.out.println (queue.dequeue().getColorType().getColor()+" "+queue.dequeue().getCardValue().getValue() + " dequeued form queque");
+		System.out.println (queue.front().getColorType().getColor()+" "+queue.front().getCardValue().getValue() + " from the front of queue");
+		System.out.println (queue.rear().getColorType().getColor()+" "+queue.rear().getCardValue().getValue() + " from the back of queue");
 	}
 	
 	public Queue(int capacity) {
 		this.capacity = capacity;
 		front = this.size = 0;
 		rear = capacity - 1;
-		array = new int[this.capacity];
+		array = new UnoCard[this.capacity];
 	}
 	
-	boolean isFull (Queue queue) {
+	public boolean isFull (Queue queue) {
 		return (queue.size == queue.capacity);
 	}
 	
-	boolean isEmpty (Queue queue) {
+	public boolean isEmpty (Queue queue) {
 		return (queue.size == 0);
 	}
 	
-	void enqueue (int item)  {
+	public void enqueue (UnoCard item)  {
 		if (isFull(this))
 			return;
 		this.rear = (this.rear + 1) % this.capacity;
@@ -42,25 +42,26 @@ public class Queue {
 		this.size = this.size + 1;
 	}
 	
-	int dequeue() {
+	public UnoCard dequeue() {
 		if (isEmpty(this)) 
-			return Integer.MIN_VALUE;
-		int item = this.array[this.front];
+			return null;
+		UnoCard item;
+		item = this.array[this.front];
 		this.front = (this.front + 1) % this.capacity;
 		this.size = this.size - 1;
 		return item;
 	}
 	
-	int front () {
+	public UnoCard front () {
 		if (isEmpty(this))
-			return Integer.MIN_VALUE;
+			return null;
 		
 		return this.array[this.front];
 	}
 	
-	int rear () {
+	public UnoCard rear () {
 		if (isEmpty(this))
-			return Integer.MIN_VALUE;
+			return null;
 		
 		return this.array[this.rear];
 	}
