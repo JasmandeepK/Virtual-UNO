@@ -11,6 +11,7 @@ public class MenuPane extends GraphicsPane {
 										// all of the GraphicsProgram calls
 	private GButton playButton;
 	private GLabel playLabel;
+	private GLabel welcomeLabel;
 	
 	public MenuPane(MainApplication app) {
 		super();
@@ -20,19 +21,23 @@ public class MenuPane extends GraphicsPane {
 		playLabel = new GLabel("PLAY", 220, 235);
 		playLabel.setFont("TimesRoman-Bold-24");
 		playLabel.setColor(Color.WHITE);
-		
+		welcomeLabel = new GLabel("WELCOME TO VIRTUAL UNO", 50, 50);
+		welcomeLabel.setFont("TimesRoman-Bold-50");
+		welcomeLabel.setColor(Color.RED);
 	}
 
 	@Override
 	public void showContents() {
 		program.add(playButton);
 		program.add(playLabel);
+		program.add(welcomeLabel);
 	}
 
 	@Override
 	public void hideContents() {
 		program.remove(playButton);
 		program.remove(playLabel);
+		program.remove(welcomeLabel);
 	}
 
 	@Override
