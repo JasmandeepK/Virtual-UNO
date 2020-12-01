@@ -3,8 +3,8 @@ package starter;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.*;
-import acm.graphics.GLabel;
-import acm.graphics.GObject;
+
+import acm.graphics.*;
 
 public class MenuPane extends GraphicsPane {
 	private MainApplication program; // you will use program to get access to
@@ -12,6 +12,10 @@ public class MenuPane extends GraphicsPane {
 	private GButton playButton;
 	private GLabel playLabel;
 	private GLabel welcomeLabel;
+	private GImage card1;
+	private GImage card2;
+	private GImage card3;
+	private GImage card4;
 	
 	public MenuPane(MainApplication app) {
 		super();
