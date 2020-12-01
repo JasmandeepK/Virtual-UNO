@@ -16,11 +16,17 @@ public class MenuPane extends GraphicsPane {
 	public MenuPane(MainApplication app) {
 		super();
 		program = app;
-		playButton = new GButton("", 200, 200, 100, 50);
+		
+		//play button
+		playButton = new GButton("", 350, 300, 100, 50);
 		playButton.setFillColor(Color.YELLOW);
-		playLabel = new GLabel("PLAY", 220, 235);
+		
+		//play label on top of play button
+		playLabel = new GLabel("PLAY", 370, 335);
 		playLabel.setFont("TimesRoman-Bold-24");
 		playLabel.setColor(Color.WHITE);
+		
+		//welcome label
 		welcomeLabel = new GLabel("WELCOME TO VIRTUAL UNO", 50, 50);
 		welcomeLabel.setFont("TimesRoman-Bold-50");
 		welcomeLabel.setColor(Color.RED);
