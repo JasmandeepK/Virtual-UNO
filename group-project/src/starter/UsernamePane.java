@@ -57,10 +57,10 @@ public class UsernamePane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == nextButton) {
-			program.switchToSome();
+			program.switchToSecondUser();
 		}
 		if (obj == nextLabel) {
-			program.switchToSome();
+			program.switchToSecondUser();
 		}
 	}
 }

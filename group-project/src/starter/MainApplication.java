@@ -8,6 +8,7 @@ public class MainApplication extends GraphicsApplication {
 	private SomePane somePane;
 	private MenuPane menu;
 	private UsernamePane usernameScreen;
+	private UsernamePane2 usernameScreen2;
 	private int count;
 
 	public void init() {
@@ -19,6 +20,7 @@ public class MainApplication extends GraphicsApplication {
 		somePane = new SomePane(this);
 		menu = new MenuPane(this);
 		usernameScreen = new UsernamePane(this);
+		usernameScreen2 = new UsernamePane2(this);
 		switchToMenu();
 	}
 
@@ -30,6 +32,10 @@ public class MainApplication extends GraphicsApplication {
 	
 	public void switchToFirstUser() {
 		switchToScreen(usernameScreen);
+	}
+	
+	public void switchToSecondUser() {
+		switchToScreen(usernameScreen2);
 	}
 	
 	public void switchToSome() {
