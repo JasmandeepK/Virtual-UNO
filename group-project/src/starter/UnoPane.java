@@ -24,11 +24,18 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	public Player getPlayer1() {
+		return player1;
+	}
+	
+	public Player getPlayer2() {
+		return player2;
+	}
+	
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
 		program.add(unoButton);
-		
 		for(int i = 0; i < player1.getPlayerHand().length; i++) {
 			if(player1.getPlayerHand()[i] != null) {
 				String filepath = player1.getPlayerHand()[i].getColorType().getColor() + "/" + player1.getPlayerHand()[i].getCardValue().getValue() + ".png";

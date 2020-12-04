@@ -36,17 +36,17 @@ public class Player {
 		playerName = "";
 		playerNumber = playerNum;
 		numberOfCards = 0;
-		getPlayerName();
 	}
 	
+	public void setName(String name) {
+		playerName = name;
+	}
 	public UnoCard[] getPlayerHand() {
 		return playerHand;
 	}
 	//Get Player name from User
-	public void getPlayerName(){
-		System.out.print("Enter the player's name "+(playerNumber+1)+": ");
-		playerName = "x";
-		System.out.println();
+	public String getPlayerName(){
+		return playerName;
 	}
 	
 	//Add card to player hand

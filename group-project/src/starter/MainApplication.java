@@ -25,7 +25,15 @@ public class MainApplication extends GraphicsApplication {
 		unoPane = new UnoPane(this);
 		switchToMenu();
 	}
-
+	
+	public void setPlayer1Name(String name) {
+		unoPane.getPlayer1().setName(name);
+	}
+	
+	public void setPlayer2Name(String name) {
+		unoPane.getPlayer2().setName(name);
+	}
+	
 	public void switchToMenu() {
 		playRandomSound();
 		count++;

@@ -92,6 +92,7 @@ public class UsernamePane2 extends GraphicsPane implements ActionListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
+		program.setPlayer2Name(input);
 		if (obj == nextButton) {
 			program.switchToUnoPane();
 		}
