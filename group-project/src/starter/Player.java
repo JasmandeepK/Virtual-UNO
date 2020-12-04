@@ -2,16 +2,16 @@ package starter;
 import java.util.*;
 
 public class Player {
-	String playerName;
+	String playerName = "x";
 	int playerNumber, numberOfCards;
 	Player nextPlayer;
 	Player previousPlayer;
 	//Max number of cards = 25
 	UnoCard playerHand[] = new UnoCard[25];
-	private Scanner x = new Scanner(System.in);
+	//private Scanner x = new Scanner(System.in);
 	//Constructor
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Player player1 = new Player(0);
 		Player player2 = new Player(1);
 		Dealer dealerDeck = new Dealer(108);
@@ -30,7 +30,7 @@ public class Player {
 		player1.removeFromHand(5);
 		System.out.println("Should print player 1's deck with the sixth card removed");
 		player1.displayPlayerHand();
-	}
+	}*/
 	
 	Player(int playerNum){
 		playerName = "";
@@ -38,10 +38,14 @@ public class Player {
 		numberOfCards = 0;
 		getPlayerName();
 	}
+	
+	public UnoCard[] getPlayerHand() {
+		return playerHand;
+	}
 	//Get Player name from User
 	public void getPlayerName(){
 		System.out.print("Enter the player's name "+(playerNumber+1)+": ");
-		playerName = x.next();
+		playerName = "x";
 		System.out.println();
 	}
 	

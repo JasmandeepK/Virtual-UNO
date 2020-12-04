@@ -1,23 +1,38 @@
 package starter;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JTextField;
+
+
 import java.awt.*;
+import java.awt.TextField;
+
 
 import acm.program.*;
 import acm.graphics.*;
 
-public class UsernamePane2 extends GraphicsPane {
+public class UsernamePane2 extends GraphicsPane implements ActionListener {
 	private MainApplication program;
 	
 	private GButton nextButton;
 	private GLabel nextLabel;
 	private GLabel prompt;
-	private GLabel name;
-	
+	private JTextField userInputted;
+	private static final Font initFont= new Font("Arial", Font.BOLD, 25);
+	private String input = "";
 	public UsernamePane2(MainApplication app) {
 		super();
+		
 		program = app;
+		userInputted = new JTextField("Enter username:");
+		userInputted.setFont(initFont);
+		userInputted.setEnabled(true);
+		userInputted.setBounds(200, 200, 500, 50);
 		
 		//next label
 		nextButton = new GButton("", 325, 300, 100, 50);
@@ -31,18 +46,40 @@ public class UsernamePane2 extends GraphicsPane {
 		//prompt
 		prompt = new GLabel("ENTER IN A USERNAME FOR PLAYER TWO:", 100,100);
 		prompt.setFont("TimesRoman-Bold-30");
-		
-		//user input for username
-		name = new GLabel("", 200, 200);
-		name.setColor(Color.YELLOW);
 	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(userInputted.isEnabled()) {
+			char key = e.getKeyChar();
+			if (!(key == KeyEvent.VK_BACK_SPACE)) {
+				input += key;
+			}
+			else {
+				if (input.length()>0) {
+					input = input.substring(0, input.length()-1);
+				}
+			}
+			setName(input);
+		}
+	}
+	private void setName(String name) {
+		if(name.length()==0) {
+			userInputted.setText("Enter username:");
+		}
+		else {
+			userInputted.setText(name);
+		}
+	}
+
 
 	@Override
 	public void showContents() {
 		program.add(nextButton);
 		program.add(nextLabel);
 		program.add(prompt);
-		program.add(name);
+		program.add(userInputted);
 	}
 
 	@Override
@@ -50,17 +87,22 @@ public class UsernamePane2 extends GraphicsPane {
 		program.remove(nextButton);
 		program.remove(nextLabel);
 		program.remove(prompt);
-		program.remove(name);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == nextButton) {
-			program.switchToSome();
+			program.switchToUnoPane();
 		}
 		if (obj == nextLabel) {
-			program.switchToSome();
+			program.switchToUnoPane();
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

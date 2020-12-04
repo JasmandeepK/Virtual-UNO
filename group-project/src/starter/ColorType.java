@@ -21,19 +21,19 @@ public class ColorType {
 	
 	public String getColor() {
 		if(color == 0) {
-			return "red";
+			return "Red";
 		}
 		else if(color == 1) {
-			return "yellow";
+			return "Yellow";
 		}
 		else if(color == 2) {
-			return "blue";
+			return "Blue";
 		}
 		else if(color == 3) {
-			return "green";
+			return "Green";
 		}
 		else if(color == 4){
-			return "wild";
+			return "Wild";
 		}
 		return "n/a";
 	}

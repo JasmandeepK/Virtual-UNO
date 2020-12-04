@@ -9,6 +9,7 @@ public class MainApplication extends GraphicsApplication {
 	private MenuPane menu;
 	private UsernamePane usernameScreen;
 	private UsernamePane2 usernameScreen2;
+	private UnoPane unoPane;
 	private int count;
 
 	public void init() {
@@ -21,6 +22,7 @@ public class MainApplication extends GraphicsApplication {
 		menu = new MenuPane(this);
 		usernameScreen = new UsernamePane(this);
 		usernameScreen2 = new UsernamePane2(this);
+		unoPane = new UnoPane(this);
 		switchToMenu();
 	}
 
@@ -38,6 +40,9 @@ public class MainApplication extends GraphicsApplication {
 		switchToScreen(usernameScreen2);
 	}
 	
+	public void switchToUnoPane() {
+		switchToScreen(unoPane);
+	}
 	public void switchToSome() {
 		playRandomSound();
 		switchToScreen(somePane);
