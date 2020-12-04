@@ -38,7 +38,7 @@ public class MenuPane extends GraphicsPane {
 		welcomeLabel.setColor(Color.RED);
 		
 		//cards
-		card1 = new GImage("+4.png", 80, 100);
+		card1 = new GImage("Wild/+4.png", 80, 100);
 		card1.setSize(200, 350);
 		card2 = new GImage("Blue/+2.png", 180, 100);
 		card2.setSize(200, 350);
