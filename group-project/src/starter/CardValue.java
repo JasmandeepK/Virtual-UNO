@@ -24,7 +24,7 @@ public class CardValue {
 			return "skip";
 		}
 		else if(value == 13){
-			return "wild";
+			return "Wild";
 		}
 		else if (value == 14) {
 			return "+4";
