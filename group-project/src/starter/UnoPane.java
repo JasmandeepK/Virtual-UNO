@@ -3,8 +3,7 @@ package starter;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
-import acm.graphics.GImage;
-import acm.graphics.GObject;
+import acm.graphics.*;
 
 public class UnoPane extends GraphicsPane {
 	private MainApplication program;
@@ -39,7 +38,7 @@ public class UnoPane extends GraphicsPane {
 		
 		//Initializes deck
 		deck = new Dealer(108);
-		for(int i = 0; i < 25; i++) {
+		for(int i = 0; i < 7; i++) {
 			player1.addToHand(deck.deal());
 			player2.addToHand(deck.deal());
 		}
@@ -115,6 +114,15 @@ public class UnoPane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj instanceof GImage) {
+			hideContents();
+		}
+		if(obj == drawCard) {
+			if(player1Turn) {
+				player2.addToHand(deck.deal());
+			}
+			else {
+				player1.addToHand(deck.deal());
+			}
 			hideContents();
 		}
 //		if(obj == draw) {
