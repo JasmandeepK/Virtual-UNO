@@ -87,6 +87,14 @@ public class UnoPane extends GraphicsPane {
 		program.add(currCardDisplayed);	
 	}
 	
+	public void checkWin() {
+		if(player1.getNumCards() == 0) {
+			//player loses
+		}
+		else if(player2.getNumCards() == 0) {
+			//player loses
+		}
+	}
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
@@ -101,6 +109,7 @@ public class UnoPane extends GraphicsPane {
 			player1Turn = true;
 		}	
 		displayCurrentCard(currentCard);
+		checkWin();
 	}
 
 	@Override
@@ -125,9 +134,18 @@ public class UnoPane extends GraphicsPane {
 			}
 			hideContents();
 		}
-//		if(obj == draw) {
-//			
-//		}
+		if(obj == unoButton) {
+			if(player1Turn) {
+				if(player2.getNumCards() == 1){
+					//player wins
+				}
+			}
+			else {
+				if(player1.getNumCards() == 1){
+					//player wins
+				}
+			}
+		}
 		
 	}
 }
