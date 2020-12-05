@@ -93,10 +93,10 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		program.setPlayer1Name(input);
 		if (obj == nextButton) {
-			program.switchToUnoPane();
+			program.switchToSecondUser();
 		}
 		if (obj == nextLabel) {
-			program.switchToUnoPane();
+			program.switchToSecondUser();
 		}
 	}
 
