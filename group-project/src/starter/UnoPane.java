@@ -15,14 +15,18 @@ public class UnoPane extends GraphicsPane {
 	private Dealer deck;
 	private boolean player1Turn = true;
 	private int cardY = 150;
+	
+	
 	public UnoPane(MainApplication app) {
 		super();
 		program = app;
 		
-		unoButton = new GButton("UNO", MainApplication.WINDOW_WIDTH - 105, MainApplication.WINDOW_HEIGHT - 600, 100, 100);
-		unoButton.setColor(Color.RED);
-		drawCard = new GButton("DRAW CARD", MainApplication.WINDOW_WIDTH - 755, MainApplication.WINDOW_HEIGHT -600, 150, 100);
-		drawCard.setColor(Color.RED);
+		unoButton = new GButton("UNO", MainApplication.WINDOW_WIDTH - 105, MainApplication.WINDOW_HEIGHT - 595, 100, 100);
+		unoButton.setColor(Color.WHITE);
+		unoButton.setFillColor(Color.YELLOW);
+		drawCard = new GButton("DRAW CARD", MainApplication.WINDOW_WIDTH - 795, MainApplication.WINDOW_HEIGHT - 595, 150, 100);
+		drawCard.setColor(Color.WHITE);
+		drawCard.setFillColor(Color.RED);
 		player1 = new Player(0);
 		player2 = new Player(1);
 		deck = new Dealer(108);
@@ -75,6 +79,9 @@ public class UnoPane extends GraphicsPane {
 		if (obj instanceof GImage) {
 			hideContents();
 		}
+//		if(obj == ) {
+//			
+//		}
 		
 	}
 }
