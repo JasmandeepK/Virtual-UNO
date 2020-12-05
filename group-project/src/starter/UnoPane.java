@@ -10,11 +10,13 @@ public class UnoPane extends GraphicsPane {
 	private MainApplication program;
 	private GButton unoButton;
 	private GButton drawCard;
+	private GImage currCardDisplayed;
 	private Player player1;
 	private Player player2;
 	private Dealer deck;
+	private UnoCard currentCard;
 	private boolean player1Turn = true;
-	private int cardY = 400;
+	private int cardY;
 	
 	
 	public UnoPane(MainApplication app) {
@@ -41,6 +43,9 @@ public class UnoPane extends GraphicsPane {
 			player1.addToHand(deck.deal());
 			player2.addToHand(deck.deal());
 		}
+		
+		//current card
+		currentCard = deck.deal();
 		
 		System.out.println("Player1:");
 		for(int i = 0; i < player1.getPlayerHand().length; i++) {
@@ -76,6 +81,13 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	public void displayCurrentCard(UnoCard card) {
+		String path = card.getColorType().getColor() + "/" + card.getCardValue().getValue() + ".png";
+		currCardDisplayed = new GImage(path, 850, 25);
+		currCardDisplayed.setSize(100, 200);
+		program.add(currCardDisplayed);	
+	}
+	
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
@@ -88,8 +100,8 @@ public class UnoPane extends GraphicsPane {
 		else {
 			displayCards(player2);
 			player1Turn = true;
-		}
-		
+		}	
+		displayCurrentCard(currentCard);
 	}
 
 	@Override
