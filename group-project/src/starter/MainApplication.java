@@ -1,7 +1,7 @@
 package starter;
 public class MainApplication extends GraphicsApplication {
-	public static final int WINDOW_WIDTH = 800;
-	public static final int WINDOW_HEIGHT = 600;
+	public static final int WINDOW_WIDTH = 1800;
+	public static final int WINDOW_HEIGHT = 900;
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "r2d2.mp3", "somethinlikethis.mp3" };
 
@@ -25,9 +25,25 @@ public class MainApplication extends GraphicsApplication {
 		unoPane = new UnoPane(this);
 		switchToMenu();
 	}
-
+	
+	public void setPlayer1Name(String name) {
+		unoPane.getPlayer1().setName(name);
+	}
+	
+	public void setPlayer2Name(String name) {
+		unoPane.getPlayer2().setName(name);
+	}
+	
+	public void setPlayer1HasUno(boolean bool) {
+		unoPane.getPlayer1().setHasUno(bool);
+	}
+	
+	public void setPlayer2HasUno(boolean bool) {
+		unoPane.getPlayer2().setHasUno(bool);
+	}
+	
 	public void switchToMenu() {
-		playRandomSound();
+		//playRandomSound();
 		count++;
 		switchToScreen(menu);
 	}
@@ -44,7 +60,7 @@ public class MainApplication extends GraphicsApplication {
 		switchToScreen(unoPane);
 	}
 	public void switchToSome() {
-		playRandomSound();
+		//playRandomSound();
 		switchToScreen(somePane);
 	}
 
