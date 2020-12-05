@@ -34,6 +34,14 @@ public class MainApplication extends GraphicsApplication {
 		unoPane.getPlayer2().setName(name);
 	}
 	
+	public void setPlayer1HasUno(boolean bool) {
+		unoPane.getPlayer1().setHasUno(bool);
+	}
+	
+	public void setPlayer2HasUno(boolean bool) {
+		unoPane.getPlayer2().setHasUno(bool);
+	}
+	
 	public void switchToMenu() {
 		//playRandomSound();
 		count++;

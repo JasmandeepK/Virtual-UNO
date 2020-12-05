@@ -4,8 +4,7 @@ import java.util.*;
 public class Player {
 	String playerName = "x";
 	int playerNumber, numberOfCards;
-	Player nextPlayer;
-	Player previousPlayer;
+	private boolean hasUno = false;
 	//Max number of cards = 25
 	UnoCard playerHand[] = new UnoCard[25];
 	//private Scanner x = new Scanner(System.in);
@@ -36,6 +35,14 @@ public class Player {
 		playerName = "";
 		playerNumber = playerNum;
 		numberOfCards = 0;
+	}
+	
+	public void setHasUno(boolean bool) {
+		hasUno = bool;
+	}
+	
+	public boolean getHasUno() {
+		return hasUno;
 	}
 	
 	public void setName(String name) {
