@@ -87,6 +87,7 @@ public class UsernamePane2 extends GraphicsPane implements ActionListener {
 		program.remove(nextButton);
 		program.remove(nextLabel);
 		program.remove(prompt);
+		program.remove(userInputted);
 	}
 
 	@Override
