@@ -15,6 +15,14 @@ public class Player {
 		numberOfCards = 0;
 	}
 	
+	public void setCoordinates(int i, int[] location) {
+		playerHand[i].setCoordinates(location);
+	}
+	
+	public int[] getCoordinates(int i) {
+		return playerHand[i].getCoordinates();
+	}
+	
 	public void setHasUno(boolean bool) {
 		hasUno = bool;
 	}
