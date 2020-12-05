@@ -10,11 +10,11 @@ class Dealer {
 		int start = 0;
 		for(int i = 0; i < 4; i ++) {
 			for(int j = 0; j < 13; j++) {
-				if(j == 0) {	// there is only one 0 card value per color	
+				if(j == 0) {	// one 0 card value per color	
 				deck[start] = new UnoCard(i,j);
 				start++;
 				}
-				else {	//there are 2 of card values for each number except for wild cards
+				else {	//2 of card values for each number exclude wild cards
 					deck[start] = new UnoCard(i,j);
 					start++;
 					deck[start] = new UnoCard(i,j);
@@ -22,7 +22,7 @@ class Dealer {
 				}
 			}
 		}
-		for(int i = 0; i < 4; i++) {	//there are 4 wild cards and 4 +4 wild cards in an UNO deck
+		for(int i = 0; i < 4; i++) {	//4 wild cards and 4 +4 wild cards in UNO deck
 			deck[start] = new UnoCard(4,13);
 			start++;
 			deck[start] = new UnoCard(4,14);
@@ -43,7 +43,7 @@ class Dealer {
 	
 	public void shuffle() {
         Random randomNumber = new Random();
-        //Randomise the deck
+        //Randomize the deck
         for (int i = 0; i < 108; i++) {
              int rand = randomNumber.nextInt(107) + 1;
              queue.enqueue(deck[rand]);
