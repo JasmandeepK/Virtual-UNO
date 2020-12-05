@@ -34,7 +34,7 @@ public class Player {
 		return playerName;
 	}
 	
-	public int getnumCards() {
+	public int getNumCards() {
 		return numberOfCards;
 	}
 	
