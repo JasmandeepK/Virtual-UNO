@@ -20,11 +20,10 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 	private GLabel prompt;
 	private JTextField userInputted;
 	private static final Font initFont= new Font("Arial", Font.BOLD, 50);
-	private String input = "";
-	
+	private String input = "";	
 	public UsernamePane(MainApplication app) {
 		super();
-		program = app;
+		
 		program = app;
 		userInputted = new JTextField("Enter username:");
 		userInputted.setFont(initFont);
@@ -86,11 +85,13 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 		program.remove(nextButton);
 		program.remove(nextLabel);
 		program.remove(prompt);
+		program.remove(userInputted);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
+		program.setPlayer1Name(input);
 		if (obj == nextButton) {
 			program.switchToUnoPane();
 		}
