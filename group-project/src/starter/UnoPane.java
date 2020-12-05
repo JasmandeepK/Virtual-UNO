@@ -10,6 +10,8 @@ public class UnoPane extends GraphicsPane {
 	private GButton unoButton;
 	private GButton drawCard;
 	private GImage currCardDisplayed;
+	private GLabel playerHand1;
+	private GLabel playerHand2;
 	private Player player1;
 	private Player player2;
 	private Dealer deck;
@@ -23,15 +25,25 @@ public class UnoPane extends GraphicsPane {
 		super();
 		program = app;
 		
-		//
+		//Creates UNO button 
 		unoButton = new GButton("UNO", 1550,25, 200, 200);
 		unoButton.setColor(Color.WHITE);
 		unoButton.setFillColor(Color.YELLOW);
 		
-		//
+		//Creates DRAW CARD button
 		drawCard = new GButton("DRAW CARD", 50, 100, 250, 100);
 		drawCard.setColor(Color.WHITE);
 		drawCard.setFillColor(Color.RED);
+		
+		//Shown when Player 1's hand is visible 
+		playerHand1 = new GLabel("Player 1", 1550,25);
+		playerHand1.setFont("TimesRoman-Bold-25");
+		playerHand1.setColor(Color.BLACK);
+		
+		//Shown when Player 2's hand is visible
+		playerHand2 = new GLabel("Player 2", 1550,25);
+		playerHand2.setFont("TimesRoman-Bold-25");
+		playerHand2.setColor(Color.BLACK);
 		
 		//Initializes both players
 		player1 = new Player(0);
@@ -98,14 +110,17 @@ public class UnoPane extends GraphicsPane {
 		program.add(drawCard);
 		if(player1Turn) {
 			displayCards(player1);
+			program.add(playerHand1);
 			player1Turn = false;
 		}
 		else {
 			displayCards(player2);
+			program.add(playerHand2);
 			player1Turn = true;
 		}	
 		displayCurrentCard(currentCard);
 		checkWin();
+
 	}
 
 	@Override
