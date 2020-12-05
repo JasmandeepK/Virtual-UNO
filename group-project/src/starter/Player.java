@@ -7,29 +7,7 @@ public class Player {
 	private boolean hasUno = false;
 	//Max number of cards = 25
 	UnoCard playerHand[] = new UnoCard[25];
-	//private Scanner x = new Scanner(System.in);
-	//Constructor
 	
-	/*public static void main(String[] args) {
-		Player player1 = new Player(0);
-		Player player2 = new Player(1);
-		Dealer dealerDeck = new Dealer(108);
-		dealerDeck.shuffle();
-		UnoCard c;
-		for(int i = 0; i < 7; i++) {
-			c = dealerDeck.deal();
-			player1.addToHand(c);
-		}
-		for(int i = 0; i < 7; i++) {
-			c = dealerDeck.deal();
-			player2.addToHand(c);
-		}
-		player1.displayPlayerHand();
-		player2.displayPlayerHand();
-		player1.removeFromHand(5);
-		System.out.println("Should print player 1's deck with the sixth card removed");
-		player1.displayPlayerHand();
-	}*/
 	
 	Player(int playerNum){
 		playerName = "";
