@@ -14,26 +14,34 @@ public class UnoPane extends GraphicsPane {
 	private Player player2;
 	private Dealer deck;
 	private boolean player1Turn = true;
-	private int cardY = 200;
+	private int cardY = 400;
 	
 	
 	public UnoPane(MainApplication app) {
 		super();
 		program = app;
 		
-		unoButton = new GButton("UNO", MainApplication.WINDOW_WIDTH - 105, MainApplication.WINDOW_HEIGHT - 695, 100, 100);
+		//
+		unoButton = new GButton("UNO", 1550,25, 200, 200);
 		unoButton.setColor(Color.WHITE);
 		unoButton.setFillColor(Color.YELLOW);
-		drawCard = new GButton("DRAW CARD", MainApplication.WINDOW_WIDTH - 795, MainApplication.WINDOW_HEIGHT - 695, 150, 100);
+		
+		//
+		drawCard = new GButton("DRAW CARD", 50, 100, 250, 100);
 		drawCard.setColor(Color.WHITE);
 		drawCard.setFillColor(Color.RED);
+		
+		//Initializes both players
 		player1 = new Player(0);
 		player2 = new Player(1);
+		
+		//Initializes deck
 		deck = new Dealer(108);
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < 25; i++) {
 			player1.addToHand(deck.deal());
 			player2.addToHand(deck.deal());
 		}
+		
 		System.out.println("Player1:");
 		for(int i = 0; i < player1.getPlayerHand().length; i++) {
 			if(player1.getPlayerHand()[i] != null) {
@@ -59,14 +67,9 @@ public class UnoPane extends GraphicsPane {
 	public void displayCards(Player player) {
 		for(int i = 0; i < player.getPlayerHand().length; i++) {
 			if(player.getPlayerHand()[i] != null) {
-				if(i% 10 < 5) {
-					cardY = 200;
-				}
-				else {
-					cardY = 420;
-				}
+				if(i% 25 < 12) {	cardY = 250;} else if(i % 25 < 24) { cardY = 470;} else {cardY = 690;}
 				String filepath = player.getPlayerHand()[i].getColorType().getColor() + "/" + player.getPlayerHand()[i].getCardValue().getValue() + ".png";
-				GImage card = new GImage(filepath, (i%5)*150+20,cardY);
+				GImage card = new GImage(filepath, (i%12)*150+20,cardY);
 				card.setSize(100, 200);
 				program.add(card);
 			}
@@ -102,7 +105,7 @@ public class UnoPane extends GraphicsPane {
 		if (obj instanceof GImage) {
 			hideContents();
 		}
-//		if(obj == unoButton) {
+//		if(obj == draw) {
 //			
 //		}
 		
