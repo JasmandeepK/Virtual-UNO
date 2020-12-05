@@ -10,6 +10,7 @@ public class MainApplication extends GraphicsApplication {
 	private UsernamePane usernameScreen;
 	private UsernamePane2 usernameScreen2;
 	private UnoPane unoPane;
+	private WinPane winPane;
 	private int count;
 
 	public void init() {
@@ -23,6 +24,7 @@ public class MainApplication extends GraphicsApplication {
 		usernameScreen = new UsernamePane(this);
 		usernameScreen2 = new UsernamePane2(this);
 		unoPane = new UnoPane(this);
+		winPane = new WinPane(this);
 		switchToMenu();
 	}
 	
@@ -42,6 +44,9 @@ public class MainApplication extends GraphicsApplication {
 		unoPane.getPlayer2().setHasUno(bool);
 	}
 	
+	public String getWinningPlayerName() {
+		return unoPane.getWinningPlayerName();
+	}
 	public void switchToMenu() {
 		//playRandomSound();
 		count++;
@@ -59,6 +64,11 @@ public class MainApplication extends GraphicsApplication {
 	public void switchToUnoPane() {
 		switchToScreen(unoPane);
 	}
+	
+	public void switchToWinPane(){
+		switchToScreen(winPane);
+	}
+	
 	public void switchToSome() {
 		//playRandomSound();
 		switchToScreen(somePane);
