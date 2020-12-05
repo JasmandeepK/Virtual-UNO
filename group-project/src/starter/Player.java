@@ -34,11 +34,16 @@ public class Player {
 		return playerName;
 	}
 	
+	public int getnumCards() {
+		return numberOfCards;
+	}
+	
 	//Add card to player hand
 	public void addToHand(UnoCard c){
 		numberOfCards++;
 		playerHand[numberOfCards-1] = c;
 	}
+	
 	public UnoCard removeFromHand(int index){
 		UnoCard toReturn = playerHand[index];
 		for(;index<numberOfCards;index++){
