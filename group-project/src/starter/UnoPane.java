@@ -16,8 +16,10 @@ public class UnoPane extends GraphicsPane {
 	private Player player2;
 	private Dealer deck;
 	private UnoCard currentCard;
+	private UnoCard cardClicked;
 	private boolean player1Turn = true;
 	private int cardY;
+	private int cardX;
 	private String winnerName;
 	
 	
@@ -73,9 +75,12 @@ public class UnoPane extends GraphicsPane {
 		for(int i = 0; i < player.getPlayerHand().length; i++) {
 			if(player.getPlayerHand()[i] != null) {
 				if(i% 25 < 12) {	cardY = 250;} else if(i % 25 < 24) { cardY = 470;} else {cardY = 690;}
+				cardX = (i%12)*150+20;
 				String filepath = player.getPlayerHand()[i].getColorType().getColor() + "/" + player.getPlayerHand()[i].getCardValue().getValue() + ".png";
-				GImage card = new GImage(filepath, (i%12)*150+20,cardY);
+				GImage card = new GImage(filepath, cardX,cardY);
 				card.setSize(100, 200);
+				int[] location = {cardX, cardY, cardX+100, cardY+200};
+				player.setCoordinates(i, location);
 				program.add(card);
 			}
 		}
@@ -101,6 +106,20 @@ public class UnoPane extends GraphicsPane {
 	
 	public String getWinningPlayerName() {
 		return winnerName;
+	}
+	
+	public Player getCurrentPlayer() {
+		if(player1Turn) {
+			return player2;	
+		}
+		else {
+			return player1;	
+		}
+	}
+	
+	public UnoCard userCardPressed() {
+		
+		return cardClicked;
 	}
 	
 	@Override
@@ -134,29 +153,17 @@ public class UnoPane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj instanceof GImage && obj != currCardDisplayed) {
+			
 			hideContents();
 		}
 		if(obj == drawCard) {
-			if(player1Turn) {
-				player2.addToHand(deck.deal());
-			}
-			else {
-				player1.addToHand(deck.deal());
-			}
+			getCurrentPlayer().addToHand(deck.deal());
 			hideContents();
 		}
 		if(obj == unoButton) {
-			if(player1Turn) {
-				if(player2.getNumCards() == 1){
-					winnerName = player2.getPlayerName();
-					program.switchToWinPane();
-				}
-			}
-			else {
-				if(player1.getNumCards() == 1){
-					winnerName = player1.getPlayerName();
-					program.switchToWinPane();
-				}
+			if(getCurrentPlayer().getNumCards() == 1){
+				winnerName = getCurrentPlayer().getPlayerName();
+				program.switchToWinPane();
 			}
 		}
 		
