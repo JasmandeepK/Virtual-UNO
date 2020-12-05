@@ -43,11 +43,11 @@ public class UnoPane extends GraphicsPane {
 	public void displayCards(Player player) {
 		for(int i = 0; i < player.getPlayerHand().length; i++) {
 			if(player.getPlayerHand()[i] != null) {
-				if(i%5 == 0) {
+				if(i == 5) {
 					cardY = 400;
 				}
 				String filepath = player.getPlayerHand()[i].getColorType().getColor() + "/" + player.getPlayerHand()[i].getCardValue().getValue() + ".png";
-				GImage card = new GImage(filepath, i*150+20,cardY);
+				GImage card = new GImage(filepath, (i%5)*150+20,cardY);
 				card.setSize(100, 200);
 				program.add(card);
 			}
