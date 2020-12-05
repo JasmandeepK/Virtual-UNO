@@ -1,24 +1,32 @@
 package starter;
 
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+
 import acm.graphics.GImage;
+import acm.graphics.GObject;
 
 public class UnoPane extends GraphicsPane {
 	private MainApplication program;
 	private GButton unoButton;
+	private GButton drawCard;
 	private Player player1;
 	private Player player2;
 	private Dealer deck;
 	private boolean player1Turn = true;
-	
+	private int cardY = 150;
 	public UnoPane(MainApplication app) {
 		super();
 		program = app;
 		
-		unoButton = new GButton("UNO", MainApplication.WINDOW_WIDTH - 105, MainApplication.WINDOW_HEIGHT - 105, 100, 100);
+		unoButton = new GButton("UNO", MainApplication.WINDOW_WIDTH - 105, MainApplication.WINDOW_HEIGHT - 600, 100, 100);
+		unoButton.setColor(Color.RED);
+		drawCard = new GButton("DRAW CARD", MainApplication.WINDOW_WIDTH - 755, MainApplication.WINDOW_HEIGHT -600, 150, 100);
+		drawCard.setColor(Color.RED);
 		player1 = new Player(0);
 		player2 = new Player(1);
 		deck = new Dealer(108);
-		for(int i = 0; i <5; i++) {
+		for(int i = 0; i < 7; i++) {
 			player1.addToHand(deck.deal());
 			player2.addToHand(deck.deal());
 		}
@@ -32,24 +40,41 @@ public class UnoPane extends GraphicsPane {
 		return player2;
 	}
 	
+	public void displayCards(Player player) {
+		for(int i = 0; i < player.getPlayerHand().length; i++) {
+			if(player.getPlayerHand()[i] != null) {
+				if(i%5 == 0) {
+					cardY = 400;
+				}
+				String filepath = player.getPlayerHand()[i].getColorType().getColor() + "/" + player.getPlayerHand()[i].getCardValue().getValue() + ".png";
+				GImage card = new GImage(filepath, i*150+20,cardY);
+				card.setSize(100, 200);
+				program.add(card);
+			}
+		}
+	}
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
 		program.add(unoButton);
-		for(int i = 0; i < player1.getPlayerHand().length; i++) {
-			if(player1.getPlayerHand()[i] != null) {
-				String filepath = player1.getPlayerHand()[i].getColorType().getColor() + "/" + player1.getPlayerHand()[i].getCardValue().getValue() + ".png";
-				GImage card = new GImage(filepath, i*50,100);
-				program.add(card);
-			}
-		}
+		program.add(drawCard);
+		displayCards(player1);
 		
 	}
 
 	@Override
 	public void hideContents() {
 		// TODO Auto-generated method stub
+		program.removeAll();
+		showContents();
+	}
+	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		GObject obj = program.getElementAt(e.getX(), e.getY());
+		if (obj instanceof GImage) {
+			hideContents();
+		}
 		
 	}
-
 }
