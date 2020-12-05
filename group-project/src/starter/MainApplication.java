@@ -35,7 +35,7 @@ public class MainApplication extends GraphicsApplication {
 	}
 	
 	public void switchToMenu() {
-		playRandomSound();
+		//playRandomSound();
 		count++;
 		switchToScreen(menu);
 	}
@@ -52,7 +52,7 @@ public class MainApplication extends GraphicsApplication {
 		switchToScreen(unoPane);
 	}
 	public void switchToSome() {
-		playRandomSound();
+		//playRandomSound();
 		switchToScreen(somePane);
 	}
 
