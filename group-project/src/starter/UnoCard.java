@@ -1,8 +1,9 @@
 package starter;
 
 public class UnoCard {
-	ColorType type;
-	CardValue value;
+	private ColorType type;
+	private CardValue value;
+	private int[] coordinates = new int[4];
 	
 	public static void main(String[] args) {
 		UnoCard someCard =  new UnoCard(1, 4);
@@ -13,6 +14,14 @@ public class UnoCard {
 	public UnoCard(int a, int b) {
 		type = new ColorType(a);
 		value = new CardValue(b);
+	}
+	
+	public void setCoordinates(int[] location) {
+		coordinates = location;
+	}
+	
+	public int[] getCoordinates() {
+		return coordinates;
 	}
 	
 	public ColorType getColorType() {
