@@ -47,18 +47,6 @@ public class UnoPane extends GraphicsPane {
 		//current card
 		currentCard = deck.deal();
 		
-		System.out.println("Player1:");
-		for(int i = 0; i < player1.getPlayerHand().length; i++) {
-			if(player1.getPlayerHand()[i] != null) {
-				System.out.println(player1.getPlayerHand()[i].getColorType().getColor() + ": " + player1.getPlayerHand()[i].getCardValue().getValue());
-			}
-		}
-		System.out.println("Player2:");
-		for(int i = 0; i < player2.getPlayerHand().length; i++) {
-			if(player1.getPlayerHand()[i] != null) {
-				System.out.println(player2.getPlayerHand()[i].getColorType().getColor() + ": " + player2.getPlayerHand()[i].getCardValue().getValue());
-			}
-		}
 	}
 	
 	public Player getPlayer1() {
@@ -130,7 +118,7 @@ public class UnoPane extends GraphicsPane {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
-		if (obj instanceof GImage) {
+		if (obj instanceof GImage && obj != currCardDisplayed) {
 			hideContents();
 		}
 		if(obj == drawCard) {
