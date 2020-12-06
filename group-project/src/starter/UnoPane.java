@@ -20,6 +20,7 @@ public class UnoPane extends GraphicsPane {
 	private boolean player1Turn = true;
 	private int cardY;
 	private int cardX;
+	private String colorChange = "";
 	private String winnerName;
 	
 	
@@ -154,10 +155,16 @@ public class UnoPane extends GraphicsPane {
 			else if(card.getColorType().getColor() == "Wild") {
 				return true;
 			}
-			
+			else if(card.getColorType().getColor() == colorChange) {
+				return true;
+			}
 		}
 		
 		return false;
+	}
+	
+	public void changeHands() {
+		cardClicked
 	}
 	
 	@Override
@@ -192,6 +199,7 @@ public class UnoPane extends GraphicsPane {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj instanceof GImage && obj != currCardDisplayed) {
 			if(validateCard(obj)) {
+				changeHands();
 				currentCard = userCardPressed(obj);
 				hideContents();
 			}
