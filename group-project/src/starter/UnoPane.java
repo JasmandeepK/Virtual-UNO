@@ -207,6 +207,30 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	public void affectPlayerTurn() {
+		if(getCurrentPlayer() == player1) {
+			player1Turn = true;
+		}
+		else {
+			player1Turn = false;
+		}
+	}
+	
+	public void affectNextPlayer() {
+		if(currentCard.getCardValue().getValue() == "+4") {
+			affectPlayerTurn();
+		}
+		else if(currentCard.getCardValue().getValue() == "skip") {
+			affectPlayerTurn();
+		}
+		else if(currentCard.getCardValue().getValue() == "reverse") {
+			affectPlayerTurn();
+		}
+		else if(currentCard.getCardValue().getValue() == "+2" ) {
+			affectPlayerTurn();
+		}
+	}
+	
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
@@ -239,7 +263,6 @@ public class UnoPane extends GraphicsPane {
 	public void hideContents() {
 		// TODO Auto-generated method stub
 		program.removeAll();
-		showContents();
 	}
 	
 	@Override
@@ -248,13 +271,15 @@ public class UnoPane extends GraphicsPane {
 		if (obj instanceof GImage && obj != currCardDisplayed) {
 			if(validateCard(obj)) {
 				changeHands();
+				affectNextPlayer();
 				hideContents();
+				showContents();
 			}
-			
 		}
 		if(obj == drawCard) {
 			getCurrentPlayer().addToHand(deck.deal());
 			hideContents();
+			showContents();
 		}
 		if(obj == unoButton) {
 			if(getCurrentPlayer().getNumCards() == 1){
@@ -266,21 +291,25 @@ public class UnoPane extends GraphicsPane {
 			colorChange = "Red";
 			wildCase = false;
 			hideContents();
+			showContents();
 		}
 		if (obj == yellow) {
 			colorChange = "Yellow";
 			wildCase = false;
 			hideContents();
+			showContents();
 		}
 		if (obj == blue) {
 			colorChange = "Blue";
 			wildCase = false;
 			hideContents();
+			showContents();
 		}
 		if (obj == green) {
 			colorChange = "Green";
 			wildCase = false;
 			hideContents();
+			showContents();
 		}
 		
 	}
