@@ -67,6 +67,9 @@ public class UnoPane extends GraphicsPane {
 		
 		//current card
 		currentCard = deck.deal();
+		while(currentCard.getColorType().getColor() == "Wild") {
+			currentCard = deck.deal();
+		}
 		
 
 		prompt = new GLabel("Choose a Color:", 700, 100);
