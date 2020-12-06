@@ -219,7 +219,25 @@ public class UnoPane extends GraphicsPane {
 			affectPlayerTurn();
 		}
 		else if(currentCard.getCardValue().getValue() == "+2" ) {
+			for(int i = 0; i<2;i++) {
+				if(getCurrentPlayer() == player1) {
+					player2.addToHand(deck.deal());
+				}
+				else {
+					player1.addToHand(deck.deal());
+				}
+			}
 			affectPlayerTurn();
+		}
+		else if(currentCard.getCardValue().getValue() == "+4") {
+			for(int i = 0; i<4;i++) {
+				if(getCurrentPlayer() == player1) {
+					player2.addToHand(deck.deal());
+				}
+				else {
+					player1.addToHand(deck.deal());
+				}
+			}
 		}
 	}
 	
