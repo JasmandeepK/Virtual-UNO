@@ -22,6 +22,12 @@ public class UnoPane extends GraphicsPane {
 	private int cardX;
 	private String colorChange = "";
 	private String winnerName;
+	private GLabel prompt;
+	private GButton red;
+	private GButton blue;
+	private GButton green;
+	private GButton yellow;
+	private boolean wildCase = false;
 	
 	
 	public UnoPane(MainApplication app) {
@@ -62,6 +68,17 @@ public class UnoPane extends GraphicsPane {
 		//current card
 		currentCard = deck.deal();
 		
+
+		prompt = new GLabel("Choose a Color:", 700, 100);
+		prompt.setFont("TimesRoman-Bold-50");
+		red = new GButton("", 50, 300, 300,300);
+		red.setFillColor(Color.RED);
+		blue = new GButton("", 500, 300, 300,300);
+		blue.setFillColor(Color.BLUE);
+		green = new GButton("", 950, 300, 300,300);
+		green.setFillColor(Color.GREEN);
+		yellow = new GButton("", 1400, 300, 300,300);
+		yellow.setFillColor(Color.YELLOW);
 	}
 	
 	public Player getPlayer1() {
@@ -136,6 +153,9 @@ public class UnoPane extends GraphicsPane {
 					getCurrentPlayer().playerHand[i].getCoordinates()[2] == location[2] &&
 					getCurrentPlayer().playerHand[i].getCoordinates()[3] == location[3]) {
 					cardClicked = getCurrentPlayer().playerHand[i];
+					if(cardClicked.getColorType().getColor() == "Wild") {
+						wildCase = true;
+					}
 					return cardClicked;
 				}
 			}
@@ -164,7 +184,7 @@ public class UnoPane extends GraphicsPane {
 	}
 	
 	public void changeHands() {
-		cardClicked
+		
 	}
 	
 	@Override
@@ -184,6 +204,14 @@ public class UnoPane extends GraphicsPane {
 		}	
 		displayCurrentCard(currentCard);
 		checkWin();
+		if(wildCase) {
+			program.removeAll();
+			program.add(prompt);
+			program.add(red);
+			program.add(yellow);
+			program.add(blue);
+			program.add(green);
+		}
 
 	}
 
@@ -214,6 +242,26 @@ public class UnoPane extends GraphicsPane {
 				winnerName = getCurrentPlayer().getPlayerName();
 				program.switchToWinPane();
 			}
+		}
+		if (obj == red) {
+			colorChange = "Red";
+			wildCase = false;
+			hideContents();
+		}
+		if (obj == yellow) {
+			colorChange = "Yellow";
+			wildCase = false;
+			hideContents();
+		}
+		if (obj == blue) {
+			colorChange = "Blue";
+			wildCase = false;
+			hideContents();
+		}
+		if (obj == green) {
+			colorChange = "Green";
+			wildCase = false;
+			hideContents();
 		}
 		
 	}

@@ -47,6 +47,7 @@ public class MainApplication extends GraphicsApplication {
 	public String getWinningPlayerName() {
 		return unoPane.getWinningPlayerName();
 	}
+	
 	public void switchToMenu() {
 		//playRandomSound();
 		count++;

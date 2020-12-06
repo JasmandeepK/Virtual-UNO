@@ -36,7 +36,7 @@ public class WinPane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == playAgain) {
-			hideContents();
+			program.switchToMenu();
 		}
 	}
 }
