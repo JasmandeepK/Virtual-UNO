@@ -335,7 +335,9 @@ public class UnoPane extends GraphicsPane {
 			}
 		}
 		if(obj == drawCard) {
-			getCurrentPlayer().addToHand(deck.deal());
+			if(getCurrentPlayer().getNumCards() < 25) {
+				getCurrentPlayer().addToHand(deck.deal());
+			}
 			hideContents();
 			program.switchToSwitchPane();
 		}
