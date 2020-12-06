@@ -38,13 +38,13 @@ public class UnoPane extends GraphicsPane {
 		drawCard.setFillColor(Color.RED);
 		
 		//Shown when Player 1's hand is visible 
-		playerHand1 = new GLabel("Player 1", 1550,25);
-		playerHand1.setFont("TimesRoman-Bold-25");
+		playerHand1 = new GLabel("Player 1", 1600,875);
+		playerHand1.setFont("TimesRoman-Bold-45");
 		playerHand1.setColor(Color.BLACK);
 		
 		//Shown when Player 2's hand is visible
-		playerHand2 = new GLabel("Player 2", 1550,25);
-		playerHand2.setFont("TimesRoman-Bold-25");
+		playerHand2 = new GLabel("Player 2", 1600,875);
+		playerHand2.setFont("TimesRoman-Bold-45");
 		playerHand2.setColor(Color.BLACK);
 		
 		//Initializes both players
