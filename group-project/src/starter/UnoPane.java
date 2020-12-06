@@ -29,6 +29,7 @@ public class UnoPane extends GraphicsPane {
 	private GButton yellow;
 	private boolean wildCase = false;
 	private boolean unoButtonPressed = false;
+	private GButton currentColor;
 	
 	public UnoPane(MainApplication app) {
 		super();
@@ -70,8 +71,10 @@ public class UnoPane extends GraphicsPane {
 		while(currentCard.getColorType().getColor() == "Wild") {
 			currentCard = deck.deal();
 		}
-		
 
+		currentColor = new GButton("Current Color", 600, 25, 200, 200);
+		currentColor.setColor(Color.WHITE);
+		
 		prompt = new GLabel("Choose a Color:", 700, 100);
 		prompt.setFont("TimesRoman-Bold-50");
 		red = new GButton("", 50, 300, 300,300);
@@ -82,6 +85,38 @@ public class UnoPane extends GraphicsPane {
 		green.setFillColor(Color.GREEN);
 		yellow = new GButton("", 1400, 300, 300,300);
 		yellow.setFillColor(Color.YELLOW);
+	}
+	
+	public void updateCurrentColor() {
+		//creates current color
+		if(currentCard.getColorType().getColor() == "Red") {
+			currentColor.setFillColor(Color.RED);
+		}
+		else if(currentCard.getColorType().getColor() == "Green") {
+			currentColor.setFillColor(Color.GREEN);
+		}
+		else if(currentCard.getColorType().getColor() == "Blue") {
+			currentColor.setFillColor(Color.BLUE);
+		}
+		else if(currentCard.getColorType().getColor() == "Yellow") {
+			currentColor.setFillColor(Color.YELLOW);
+		}
+		else if(currentCard.getColorType().getColor() == "Wild") {
+			if(colorChange!= null) {
+				if(colorChange == "Red") {	
+					currentColor.setFillColor(Color.RED);
+				}
+				else if(colorChange == "Green") {
+					currentColor.setFillColor(Color.GREEN);
+				}
+				else if(colorChange == "Blue") {
+					currentColor.setFillColor(Color.BLUE);
+				}
+				else if(colorChange== "Yellow") {
+					currentColor.setFillColor(Color.YELLOW);
+				}
+			}
+		}
 	}
 	
 	public Player getPlayer1() {
@@ -145,7 +180,6 @@ public class UnoPane extends GraphicsPane {
 					getCurrentPlayer().playerHand[i].getCoordinates()[2] == location[2] &&
 					getCurrentPlayer().playerHand[i].getCoordinates()[3] == location[3]) {
 					cardClicked = getCurrentPlayer().playerHand[i];
-					
 					if(cardClicked.getColorType().getColor() == "Wild") {
 						wildCase = true;
 					}
@@ -264,6 +298,7 @@ public class UnoPane extends GraphicsPane {
 	public void showContents() {
 		program.add(unoButton);
 		program.add(drawCard);
+		program.add(currentColor);
 		if(player1Turn) {
 			displayCards(player1);
 			program.add(playerHand1);
@@ -273,7 +308,7 @@ public class UnoPane extends GraphicsPane {
 			displayCards(player2);
 			program.add(playerHand2);
 			player1Turn = true;
-		}	
+		}		
 		displayCurrentCard(currentCard);
 		if(wildCase) {
 			program.removeAll();
@@ -283,6 +318,7 @@ public class UnoPane extends GraphicsPane {
 			program.add(blue);
 			program.add(green);
 		}
+		updateCurrentColor();
 
 	}
 
