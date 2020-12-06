@@ -24,7 +24,7 @@ public class MenuPane extends GraphicsPane {
 		program = app;
 		
 		//play button
-		playButton = new GButton("", 825, 600, 150, 70);
+		playButton = new GButton("", 825, 600, 158, 65);
 		playButton.setFillColor(Color.YELLOW);
 		
 		//play label on top of play button
@@ -40,8 +40,8 @@ public class MenuPane extends GraphicsPane {
 		//cards
 		card1 = new GImage("Wild/+4.png", 350, 200);
 		card1.setSize(400, 570);
-		card2 = new GImage("Blue/+2.png", 525, 200);
-		card2.setSize(400, 570);
+		card2 = new GImage("Blue/+2.png", 525, 195);
+		card2.setSize(400, 580);
 		card3 = new GImage("Green/1.png", 700, 200);
 		card3.setSize(400, 570);
 		card4 = new GImage("Yellow/3.png", 875, 200);
