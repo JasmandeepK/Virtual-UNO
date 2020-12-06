@@ -117,10 +117,12 @@ public class UnoPane extends GraphicsPane {
 	public void checkWin() {
 		if(player1.getNumCards() == 0) {
 			winnerName = player2.getPlayerName();
+			hideContents();
 			program.switchToWinPane();
 		}
 		else if(player2.getNumCards() == 0) {
 			winnerName = player1.getPlayerName();
+			hideContents();
 			program.switchToWinPane();
 		}
 	}
