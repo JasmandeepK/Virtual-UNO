@@ -117,9 +117,34 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
-	public UnoCard userCardPressed() {
+	public int[] getObjSpace(GObject obj) {
+		int[] space = new int[4];
+		space[0] = (int) obj.getX();
+		space[1] = (int) obj.getY();
+		space[2] = (int) (obj.getX() + obj.getWidth());
+		space[3] = (int) (obj.getY() + obj.getHeight());
+		return space;
+	}
+	
+	public UnoCard userCardPressed(GObject obj) {
+		int[] location = getObjSpace(obj);
+		for(int i = 0; i < getCurrentPlayer().playerHand.length; i++) {
+			if(getCurrentPlayer().playerHand[i] != null) {
+				if(getCurrentPlayer().playerHand[i].getCoordinates()[0] == location[0] &&
+					getCurrentPlayer().playerHand[i].getCoordinates()[1] == location[1] &&
+					getCurrentPlayer().playerHand[i].getCoordinates()[2] == location[2] &&
+					getCurrentPlayer().playerHand[i].getCoordinates()[3] == location[3]) {
+					cardClicked = getCurrentPlayer().playerHand[i];
+					return cardClicked;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public boolean validateCard() {
 		
-		return cardClicked;
+		return false;
 	}
 	
 	@Override
@@ -153,7 +178,7 @@ public class UnoPane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj instanceof GImage && obj != currCardDisplayed) {
-			
+			userCardPressed(obj);
 			hideContents();
 		}
 		if(obj == drawCard) {
