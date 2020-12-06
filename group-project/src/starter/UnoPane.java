@@ -114,19 +114,6 @@ public class UnoPane extends GraphicsPane {
 		program.add(currCardDisplayed);	
 	}
 	
-	public void checkWin() {
-		if(player1.getNumCards() == 0) {
-			winnerName = player2.getPlayerName();
-			hideContents();
-			program.switchToWinPane();
-		}
-		else if(player2.getNumCards() == 0) {
-			winnerName = player1.getPlayerName();
-			hideContents();
-			program.switchToWinPane();
-		}
-	}
-	
 	public String getWinningPlayerName() {
 		return winnerName;
 	}
@@ -238,8 +225,6 @@ public class UnoPane extends GraphicsPane {
 	
 	@Override
 	public void showContents() {
-		// TODO Auto-generated method stub
-		checkWin();
 		program.add(unoButton);
 		program.add(drawCard);
 		if(player1Turn) {
@@ -279,6 +264,16 @@ public class UnoPane extends GraphicsPane {
 				affectNextPlayer();
 				hideContents();
 				showContents();
+				if(player1.getNumCards() == 0) {
+					winnerName = player2.getPlayerName();
+					hideContents();
+					program.switchToWinPane();
+				}
+				else if(player2.getNumCards() == 0) {
+					winnerName = player1.getPlayerName();
+					hideContents();
+					program.switchToWinPane();
+				}
 			}
 		}
 		if(obj == drawCard) {
