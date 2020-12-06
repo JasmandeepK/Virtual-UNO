@@ -8,6 +8,7 @@ public class MainApplication extends GraphicsApplication {
 	private UsernamePane2 usernameScreen2;
 	private UnoPane unoPane;
 	private WinPane winPane;
+	private SwitchPane switchPane;
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -19,6 +20,7 @@ public class MainApplication extends GraphicsApplication {
 		usernameScreen2 = new UsernamePane2(this);
 		unoPane = new UnoPane(this);
 		winPane = new WinPane(this);
+		switchPane = new SwitchPane(this);
 		switchToMenu();
 	}
 	
@@ -52,5 +54,9 @@ public class MainApplication extends GraphicsApplication {
 	
 	public void switchToWinPane(){
 		switchToScreen(winPane);
+	}
+	
+	public void switchToSwitchPane() {
+		switchToScreen(switchPane);
 	}
 }
