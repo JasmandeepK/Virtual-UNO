@@ -192,10 +192,7 @@ public class UnoPane extends GraphicsPane {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj instanceof GImage && obj != currCardDisplayed) {
 			if(validateCard(obj)) {
-				System.out.println(validateCard(obj));
 				currentCard = userCardPressed(obj);
-				System.out.println(currentCard.getColorType().getColor());
-				System.out.println(currentCard.getCardValue().getValue());
 				hideContents();
 			}
 			
