@@ -8,6 +8,7 @@ public class MainApplication extends GraphicsApplication {
 	private UsernamePane2 usernameScreen2;
 	private UnoPane unoPane;
 	private WinPane winPane;
+	private SwitchPane switchPane;
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -19,6 +20,7 @@ public class MainApplication extends GraphicsApplication {
 		usernameScreen2 = new UsernamePane2(this);
 		unoPane = new UnoPane(this);
 		winPane = new WinPane(this);
+		switchPane = new SwitchPane(this);
 		switchToMenu();
 	}
 	
@@ -28,14 +30,6 @@ public class MainApplication extends GraphicsApplication {
 	
 	public void setPlayer2Name(String name) {
 		unoPane.getPlayer2().setName(name);
-	}
-	
-	public void setPlayer1HasUno(boolean bool) {
-		unoPane.getPlayer1().setHasUno(bool);
-	}
-	
-	public void setPlayer2HasUno(boolean bool) {
-		unoPane.getPlayer2().setHasUno(bool);
 	}
 	
 	public String getWinningPlayerName() {
@@ -60,5 +54,9 @@ public class MainApplication extends GraphicsApplication {
 	
 	public void switchToWinPane(){
 		switchToScreen(winPane);
+	}
+	
+	public void switchToSwitchPane() {
+		switchToScreen(switchPane);
 	}
 }

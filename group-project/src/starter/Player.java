@@ -4,7 +4,6 @@ import java.util.*;
 public class Player {
 	String playerName = "x";
 	int playerNumber, numberOfCards;
-	private boolean hasUno = false;
 	//Max number of cards = 25
 	UnoCard playerHand[] = new UnoCard[25];
 	
@@ -21,14 +20,6 @@ public class Player {
 	
 	public int[] getCoordinates(int i) {
 		return playerHand[i].getCoordinates();
-	}
-	
-	public void setHasUno(boolean bool) {
-		hasUno = bool;
-	}
-	
-	public boolean getHasUno() {
-		return hasUno;
 	}
 	
 	public void setName(String name) {

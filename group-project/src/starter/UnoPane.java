@@ -241,6 +241,25 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	public boolean checkCardForSwitch() {
+		if(currentCard.getCardValue().getValue() == "+2") {
+			return true;
+		}
+		else if(currentCard.getCardValue().getValue() == "+4") {
+			return true;
+		}
+		else if(currentCard.getCardValue().getValue() == "reverse") {
+			return true;
+		}
+		else if(currentCard.getCardValue().getValue() == "skip") {
+			return true;
+		}
+		else if(currentCard.getCardValue().getValue() == "Wild") {
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public void showContents() {
 		program.add(unoButton);
@@ -281,7 +300,17 @@ public class UnoPane extends GraphicsPane {
 				changeHands();
 				affectNextPlayer();
 				hideContents();
-				showContents();
+				if(!checkCardForSwitch()) {
+					program.switchToSwitchPane();
+				}
+				else if(currentCard.getCardValue().getValue() == "Wild"){
+					wildCase = true;
+					showContents();
+					program.switchToSwitchPane();
+				}
+				else {
+					showContents();
+				}
 				if(player1.getNumCards() == 0) {
 					winnerName = player2.getPlayerName();
 					hideContents();
@@ -293,8 +322,14 @@ public class UnoPane extends GraphicsPane {
 					program.switchToWinPane();
 				}
 				if(getCurrentPlayer().getNumCards() == 1 && unoButtonPressed){
-					winnerName = getCurrentPlayer().getPlayerName();
-					program.switchToWinPane();
+					if(getCurrentPlayer() == player1) {
+						winnerName = player2.getPlayerName();
+						program.switchToWinPane();
+					}
+					else {
+						winnerName = player1.getPlayerName();
+						program.switchToWinPane();
+					}
 				}
 				unoButtonPressed = false;
 			}
@@ -302,7 +337,7 @@ public class UnoPane extends GraphicsPane {
 		if(obj == drawCard) {
 			getCurrentPlayer().addToHand(deck.deal());
 			hideContents();
-			showContents();
+			program.switchToSwitchPane();
 		}
 		if(obj == unoButton) {
 			unoButtonPressed = true;
