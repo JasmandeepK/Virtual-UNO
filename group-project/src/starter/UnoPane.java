@@ -237,6 +237,7 @@ public class UnoPane extends GraphicsPane {
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
+		checkWin();
 		program.add(unoButton);
 		program.add(drawCard);
 		if(player1Turn) {
@@ -250,7 +251,6 @@ public class UnoPane extends GraphicsPane {
 			player1Turn = true;
 		}	
 		displayCurrentCard(currentCard);
-		checkWin();
 		if(wildCase) {
 			program.removeAll();
 			program.add(prompt);
