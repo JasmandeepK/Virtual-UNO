@@ -28,6 +28,7 @@ class Dealer {
 			deck[start] = new UnoCard(4,14);
 			start++;
 		}
+		shuffle();
 	}
 	
 	public static void main(String[] args) {
@@ -44,8 +45,8 @@ class Dealer {
 	public void shuffle() {
         Random randomNumber = new Random();
         //Randomize the deck
-        for (int i = 0; i < 108; i++) {
-             int rand = randomNumber.nextInt(107) + 1;
+        for (int i = 0; i < deck.length; i++) {
+             int rand = randomNumber.nextInt(deck.length - 1) + 1;
              queue.enqueue(deck[rand]);
         }
    }

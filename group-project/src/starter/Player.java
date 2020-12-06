@@ -37,6 +37,10 @@ public class Player {
 	public UnoCard[] getPlayerHand() {
 		return playerHand;
 	}
+	
+	public void setPlayerHand(UnoCard[] array) {
+		playerHand = array;
+	}
 	//Get Player name from User
 	public String getPlayerName(){
 		return playerName;
@@ -52,19 +56,18 @@ public class Player {
 		playerHand[numberOfCards-1] = c;
 	}
 	
-	public UnoCard removeFromHand(int index){
-		UnoCard toReturn = playerHand[index];
-		for(;index<numberOfCards;index++){
-			if(index==numberOfCards-1){
-				playerHand[index] = null;
+	public void removeFromHand(int index){
+		for(int i = index;i < numberOfCards;i++){
+			if(i == numberOfCards-1) {
+				playerHand[i] = null;
 			}
-			else{
-				playerHand[index] = playerHand[index+1];
+			else {
+				playerHand[i] = playerHand[i+1];
 			}		
 		}
 		numberOfCards--;
-		return toReturn;
 	}
+	
 	//Display player's hand - call at every turn
 	public void displayPlayerHand(){
 		

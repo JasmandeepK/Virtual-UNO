@@ -153,6 +153,7 @@ public class UnoPane extends GraphicsPane {
 					getCurrentPlayer().playerHand[i].getCoordinates()[2] == location[2] &&
 					getCurrentPlayer().playerHand[i].getCoordinates()[3] == location[3]) {
 					cardClicked = getCurrentPlayer().playerHand[i];
+					
 					if(cardClicked.getColorType().getColor() == "Wild") {
 						wildCase = true;
 					}
@@ -179,12 +180,31 @@ public class UnoPane extends GraphicsPane {
 				return true;
 			}
 		}
-		
+		return false;
+	}
+	
+	public boolean checkCardMatch(UnoCard card1, UnoCard card2) {
+		if(card1.getColorType().getColor() == card2.getColorType().getColor() &&
+			card1.getCardValue().getValue() == card2.getCardValue().getValue() &&
+			card1.getCoordinates()[0] == card2.getCoordinates()[0] &&
+			card1.getCoordinates()[1] == card2.getCoordinates()[1] &&
+			card1.getCoordinates()[2] == card2.getCoordinates()[2] &&
+			card1.getCoordinates()[3] == card2.getCoordinates()[3]) {
+				return true;
+		}
 		return false;
 	}
 	
 	public void changeHands() {
-		
+		currentCard = cardClicked;
+		for(int i = 0; i < getCurrentPlayer().getPlayerHand().length; i++) {
+			if(getCurrentPlayer().getPlayerHand()[i] != null) {
+				if(checkCardMatch(cardClicked, getCurrentPlayer().getPlayerHand()[i])) {
+					getCurrentPlayer().removeFromHand(i);
+					return;
+				}
+			}
+		}
 	}
 	
 	@Override
@@ -228,7 +248,6 @@ public class UnoPane extends GraphicsPane {
 		if (obj instanceof GImage && obj != currCardDisplayed) {
 			if(validateCard(obj)) {
 				changeHands();
-				currentCard = userCardPressed(obj);
 				hideContents();
 			}
 			
