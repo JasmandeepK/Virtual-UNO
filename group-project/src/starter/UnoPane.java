@@ -28,7 +28,7 @@ public class UnoPane extends GraphicsPane {
 	private GButton green;
 	private GButton yellow;
 	private boolean wildCase = false;
-	
+	private boolean unoButtonPressed = false;
 	
 	public UnoPane(MainApplication app) {
 		super();
@@ -274,6 +274,11 @@ public class UnoPane extends GraphicsPane {
 					hideContents();
 					program.switchToWinPane();
 				}
+				if(getCurrentPlayer().getNumCards() == 1 && unoButtonPressed){
+					winnerName = getCurrentPlayer().getPlayerName();
+					program.switchToWinPane();
+				}
+				unoButtonPressed = false;
 			}
 		}
 		if(obj == drawCard) {
@@ -282,10 +287,7 @@ public class UnoPane extends GraphicsPane {
 			showContents();
 		}
 		if(obj == unoButton) {
-			if(getCurrentPlayer().getNumCards() == 1){
-				winnerName = getCurrentPlayer().getPlayerName();
-				program.switchToWinPane();
-			}
+			unoButtonPressed = true;
 		}
 		if (obj == red) {
 			colorChange = "Red";
