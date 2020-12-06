@@ -142,7 +142,20 @@ public class UnoPane extends GraphicsPane {
 		return null;
 	}
 	
-	public boolean validateCard() {
+	public boolean validateCard(GObject obj) {
+		UnoCard card = userCardPressed(obj);
+		if(card != null) {
+			if(currentCard.getColorType().getColor() == card.getColorType().getColor()) {
+				return true;
+			}
+			else if(currentCard.getCardValue().getValue() == card.getCardValue().getValue()) {
+				return true;
+			}
+			else if(card.getColorType().getColor() == "Wild") {
+				return true;
+			}
+			
+		}
 		
 		return false;
 	}
@@ -178,8 +191,14 @@ public class UnoPane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj instanceof GImage && obj != currCardDisplayed) {
-			userCardPressed(obj);
-			hideContents();
+			if(validateCard(obj)) {
+				System.out.println(validateCard(obj));
+				currentCard = userCardPressed(obj);
+				System.out.println(currentCard.getColorType().getColor());
+				System.out.println(currentCard.getCardValue().getValue());
+				hideContents();
+			}
+			
 		}
 		if(obj == drawCard) {
 			getCurrentPlayer().addToHand(deck.deal());
