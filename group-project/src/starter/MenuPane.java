@@ -1,3 +1,4 @@
+//This file creates the opening screen of the program.
 package starter;
 
 import java.awt.Color;
@@ -39,9 +40,9 @@ public class MenuPane extends GraphicsPane {
 		
 		//cards
 		card1 = new GImage("Wild/+4.png", 350, 200);
-		card1.setSize(400, 570);
+		card1.setSize(400, 572);
 		card2 = new GImage("Blue/+2.png", 525, 195);
-		card2.setSize(400, 580);
+		card2.setSize(400, 582);
 		card3 = new GImage("Green/1.png", 700, 200);
 		card3.setSize(400, 570);
 		card4 = new GImage("Yellow/3.png", 875, 200);
