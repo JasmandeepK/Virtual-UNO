@@ -209,7 +209,7 @@ public class UnoPane extends GraphicsPane {
 	}
 	
 	public void affectNextPlayer() {
-		if(currentCard.getCardValue().getValue() == "+4") {
+		if(currentCard.getCardValue().getValue() == "Wild") {
 			affectPlayerTurn();
 		}
 		else if(currentCard.getCardValue().getValue() == "skip") {
