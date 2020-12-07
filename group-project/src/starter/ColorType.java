@@ -15,10 +15,12 @@ public class ColorType {
 		color = num;
 	}
 	
+	//sets a number based on color
 	public void setColor(int num) {
 		this.color = num;
 	}
 	
+	//returns the color in string form
 	public String getColor() {
 		if(color == 0) {
 			return "Red";
