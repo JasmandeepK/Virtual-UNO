@@ -34,6 +34,9 @@ public class UnoPane extends GraphicsPane {
 	private boolean unoButtonPressed = false;
 	private GButton currentColor;
 	
+	Color myBlue = new Color(0,128,255); 
+	Color myGreen = new Color(0,204,0); 
+	
 	public UnoPane(MainApplication app) {
 		super();
 		program = app;
@@ -84,9 +87,9 @@ public class UnoPane extends GraphicsPane {
 		red = new GButton("", 50, 300, 300,300);
 		red.setFillColor(Color.RED);
 		blue = new GButton("", 500, 300, 300,300);
-		blue.setFillColor(Color.BLUE);
+		blue.setFillColor(myBlue);
 		green = new GButton("", 950, 300, 300,300);
-		green.setFillColor(Color.GREEN);
+		green.setFillColor(myGreen);
 		yellow = new GButton("", 1400, 300, 300,300);
 		yellow.setFillColor(Color.ORANGE);
 	}
@@ -97,10 +100,10 @@ public class UnoPane extends GraphicsPane {
 			currentColor.setFillColor(Color.RED);
 		}
 		else if(currentCard.getColorType().getColor() == "Green") {
-			currentColor.setFillColor(Color.GREEN);
+			currentColor.setFillColor(myGreen);
 		}
 		else if(currentCard.getColorType().getColor() == "Blue") {
-			currentColor.setFillColor(Color.BLUE);
+			currentColor.setFillColor(myBlue);
 		}
 		else if(currentCard.getColorType().getColor() == "Yellow") {
 			currentColor.setFillColor(Color.ORANGE);
@@ -111,10 +114,10 @@ public class UnoPane extends GraphicsPane {
 					currentColor.setFillColor(Color.RED);
 				}
 				else if(colorChange == "Green") {
-					currentColor.setFillColor(Color.GREEN);
+					currentColor.setFillColor(myGreen);
 				}
 				else if(colorChange == "Blue") {
-					currentColor.setFillColor(Color.BLUE);
+					currentColor.setFillColor(myBlue);
 				}
 				else if(colorChange== "Yellow") {
 					currentColor.setFillColor(Color.ORANGE);
