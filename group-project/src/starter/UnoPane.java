@@ -280,6 +280,19 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	public void penalty() {
+		if (player1.getNumCards() == 0 && !unoButtonPressed) {
+			for (int i=0; i<2; i++) {
+				player1.addToHand(deck.deal());
+			}     
+		}          
+		else if (player2.getNumCards() == 0 && !unoButtonPressed) {
+			for (int i=0; i<2; i++) {
+				player2.addToHand(deck.deal());
+			}      
+		} 
+	}
+	
 	public boolean checkCardForSwitch() {
 		if(currentCard.getCardValue().getValue() == "+2") {
 			return true;
@@ -340,6 +353,7 @@ public class UnoPane extends GraphicsPane {
 			if(validateCard(obj)) {
 				changeHands();
 				affectNextPlayer();
+				penalty();
 				hideContents();
 				if(!checkCardForSwitch()) {
 					program.switchToSwitchPane();
@@ -351,25 +365,15 @@ public class UnoPane extends GraphicsPane {
 				else {
 					showContents();
 				}
-				if(player1.getNumCards() == 0) {
+				if(player1.getNumCards() == 0 && unoButtonPressed) {
 					winnerName = player2.getPlayerName();
 					hideContents();
 					program.switchToWinPane();
 				}
-				else if(player2.getNumCards() == 0) {
+				else if(player2.getNumCards() == 0 && unoButtonPressed) {
 					winnerName = player1.getPlayerName();
 					hideContents();
 					program.switchToWinPane();
-				}
-				if(getCurrentPlayer().getNumCards() == 1 && unoButtonPressed){
-					if(getCurrentPlayer() == player1) {
-						winnerName = player2.getPlayerName();
-						program.switchToWinPane();
-					}
-					else {
-						winnerName = player1.getPlayerName();
-						program.switchToWinPane();
-					}
 				}
 				unoButtonPressed = false;
 			}
