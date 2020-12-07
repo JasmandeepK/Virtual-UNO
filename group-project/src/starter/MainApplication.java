@@ -47,10 +47,6 @@ public class MainApplication extends GraphicsApplication {
 		return player2;
 	}
 	
-	public String getWinningPlayerName() {
-		return unoPane.getWinningPlayerName();
-	}
-	
 	public void switchToMenu() {
 		switchToScreen(menu);
 	}

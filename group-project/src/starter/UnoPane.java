@@ -25,7 +25,6 @@ public class UnoPane extends GraphicsPane {
 	private int cardY;
 	private int cardX;
 	private String colorChange = "";
-	private String winnerName;
 	private GLabel prompt;
 	private GButton red;
 	private GButton blue;
@@ -152,10 +151,6 @@ public class UnoPane extends GraphicsPane {
 		currCardDisplayed = new GImage(path, 850, 25);
 		currCardDisplayed.setSize(100, 200);
 		program.add(currCardDisplayed);	
-	}
-	
-	public String getWinningPlayerName() {
-		return winnerName;
 	}
 	
 	public Player getCurrentPlayer() {
@@ -366,12 +361,10 @@ public class UnoPane extends GraphicsPane {
 					showContents();
 				}
 				if(player1.getNumCards() == 0 && unoButtonPressed) {
-					winnerName = "Player 1";
 					hideContents();
 					program.switchToWinPane();
 				}
 				else if(player2.getNumCards() == 0 && unoButtonPressed) {
-					winnerName = "Player 2";
 					hideContents();
 					program.switchToWinPane();
 				}
