@@ -12,10 +12,16 @@ public class DirectionsPane extends GraphicsPane {
 	
 	private GButton backButton;
 	private GLabel backLabel;
+	private GLabel DirectionsLabel;
 
 	public DirectionsPane(MainApplication app) {
 		super();
 		program = app;
+		
+		//Directions label 
+		DirectionsLabel = new GLabel("UNO DIRECTIONS: ", 540, 100);
+		DirectionsLabel.setFont("TimesRoman-Bold-70");
+		DirectionsLabel.setColor(Color.RED);
 		
 		//Back button and label
 		backButton = new GButton("", 810, 800, 180, 75);
@@ -29,12 +35,14 @@ public class DirectionsPane extends GraphicsPane {
 	public void showContents() {
 		program.add(backButton);
 		program.add(backLabel);
+		program.add(DirectionsLabel);
 	}
 
 	@Override
 	public void hideContents() {
 		program.remove(backButton);
 		program.remove(backLabel);
+		program.remove(DirectionsLabel);
 	}
 	
 	@Override
