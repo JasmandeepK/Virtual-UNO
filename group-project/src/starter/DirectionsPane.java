@@ -19,7 +19,7 @@ public class DirectionsPane extends GraphicsPane {
 		program = app;
 		
 		//Directions label 
-		DirectionsLabel = new GLabel("UNO DIRECTIONS: ", 540, 100);
+		DirectionsLabel = new GLabel("UNO DIRECTIONS: ", 560, 100);
 		DirectionsLabel.setFont("TimesRoman-Bold-70");
 		DirectionsLabel.setColor(Color.RED);
 		
