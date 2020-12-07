@@ -1,3 +1,4 @@
+//This class implements a queue which is later used in some of the UnoCard arrays
 package starter;
 import java.util.ArrayList;
 import javax.smartcardio.Card;
@@ -31,10 +32,12 @@ public class Queue {
 		array = new UnoCard[this.capacity];
 	}
 	
+	//returns true if the queue is full
 	public boolean isFull (Queue queue) {
 		return (queue.size == queue.capacity);
 	}
 	
+	//returns true if the queue is empty
 	public static boolean isEmpty (Queue queue) {
 		return (queue.size == 0);
 	}
