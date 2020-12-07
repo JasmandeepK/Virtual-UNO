@@ -6,6 +6,7 @@ public class MainApplication extends GraphicsApplication {
 	private MenuPane menu;
 	private UsernamePane usernameScreen;
 	private UsernamePane2 usernameScreen2;
+	private DirectionsPane directionsScreen;
 	private UnoPane unoPane;
 	private WinPane winPane;
 	private SwitchPane switchPane;
@@ -19,6 +20,7 @@ public class MainApplication extends GraphicsApplication {
 		menu = new MenuPane(this);
 		usernameScreen = new UsernamePane(this);
 		usernameScreen2 = new UsernamePane2(this);
+		directionsScreen = new DirectionsPane(this);
 		unoPane = new UnoPane(this);
 		winPane = new WinPane(this);
 		switchPane = new SwitchPane(this);
@@ -51,6 +53,10 @@ public class MainApplication extends GraphicsApplication {
 	
 	public void switchToMenu() {
 		switchToScreen(menu);
+	}
+	
+	public void switchToDirections() {
+		switchToScreen(directionsScreen);
 	}
 	
 	public void switchToFirstUser() {
