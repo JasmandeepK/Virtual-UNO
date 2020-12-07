@@ -25,7 +25,7 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 		super();
 		
 		program = app;
-		userInputted = new JTextField("Enter username:");
+		userInputted = new JTextField("");
 		userInputted.setFont(initFont);
 		userInputted.setEnabled(true);
 		userInputted.setBounds(400, 300, 1000, 100);
@@ -66,7 +66,7 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 	
 	private void setName(String name) {
 		if(name.length()==0) {
-			userInputted.setText("Enter username:");
+			userInputted.setText("");
 		}
 		else {
 			userInputted.setText(name);
@@ -94,19 +94,17 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == nextButton) {
+			if(!userInputted.getText().isEmpty()) {
 				program.setPlayer1Name(input);
 				program.switchToSecondUser();
+			}
 		}
 		if (obj == nextLabel) {
+			if(!userInputted.getText().isEmpty()) {
 				program.setPlayer1Name(input);
 				program.switchToSecondUser();
+			}
 			
 		}
-	}
-	
-	@Override	
-	public void actionPerformed(ActionEvent e) {	
-		// TODO Auto-generated method stub	
-
 	}
 }
