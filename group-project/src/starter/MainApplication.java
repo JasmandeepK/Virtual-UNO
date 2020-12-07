@@ -24,6 +24,9 @@ public class MainApplication extends GraphicsApplication {
 		switchToMenu();
 	}
 	
+	public String getPlayer1Name() {
+		return unoPane.getPlayer1().getPlayerName();
+	}
 	public void setPlayer1Name(String name) {
 		unoPane.getPlayer1().setName(name);
 	}

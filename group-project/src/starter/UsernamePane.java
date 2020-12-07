@@ -62,6 +62,8 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 			setName(input);
 		}
 	}
+	
+	
 	private void setName(String name) {
 		if(name.length()==0) {
 			userInputted.setText("Enter username:");
@@ -92,6 +94,7 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		program.setPlayer1Name(input);
+		System.out.println(program.getPlayer1Name());
 		if (obj == nextButton) {
 			program.switchToSecondUser();
 		}
