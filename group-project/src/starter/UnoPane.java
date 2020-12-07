@@ -316,13 +316,11 @@ public class UnoPane extends GraphicsPane {
 		program.add(drawCard);
 		program.add(currentColor);
 		if(player1Turn) {
-			playerHand1.setLabel(player1.playerName);
 			displayCards(player1);
 			program.add(playerHand1);
 			player1Turn = false;
 		}
 		else {
-			playerHand2.setLabel(player2.playerName);
 			displayCards(player2);
 			program.add(playerHand2);
 			player1Turn = true;
