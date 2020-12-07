@@ -1,3 +1,4 @@
+//This class is the comes in between each player's turn
 package starter;
 
 import java.awt.Color;
