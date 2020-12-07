@@ -12,7 +12,9 @@ public class MenuPane extends GraphicsPane {
 	private MainApplication program; // you will use program to get access to
 										// all of the GraphicsProgram calls
 	private GButton playButton;
+	private GButton dirButton;
 	private GLabel playLabel;
+	private GLabel dirLabel;
 	private GLabel welcomeLabel;
 	private GImage card1;
 	private GImage card2;
@@ -29,13 +31,21 @@ public class MenuPane extends GraphicsPane {
 		program = app;
 		
 		//play button
-		playButton = new GButton("", 825, 600, 170, 75);
+		playButton = new GButton("", 815, 600, 170, 75);
 		playButton.setFillColor(Color.YELLOW);
 		
 		//play label on top of play button
-		playLabel = new GLabel("PLAY", 842, 655);
+		playLabel = new GLabel("PLAY", 830, 655);
 		playLabel.setFont("TimesRoman-Bold-52");
 		playLabel.setColor(Color.WHITE);
+		
+		dirButton = new GButton("", 740, 800, 315, 75);
+		dirButton.setFillColor(Color.ORANGE);
+		
+		//play label on top of play button
+		dirLabel = new GLabel("DIRECTIONS", 750, 855);
+		dirLabel.setFont("TimesRoman-Bold-48");
+		dirLabel.setColor(Color.WHITE);
 		
 		//welcome label
 		welcomeLabel = new GLabel("WELCOME TO VIRTUAL UNO", 170, 150);
@@ -64,6 +74,8 @@ public class MenuPane extends GraphicsPane {
 		program.add(card5);
 		program.add(playButton);
 		program.add(playLabel);
+		program.add(dirButton);
+		program.add(dirLabel);
 		program.add(welcomeLabel);
 	}
 
@@ -71,6 +83,8 @@ public class MenuPane extends GraphicsPane {
 	public void hideContents() {
 		program.remove(playButton);
 		program.remove(playLabel);
+		program.add(dirButton);
+		program.add(dirLabel);
 		program.remove(welcomeLabel);
 		program.remove(card1);
 		program.remove(card2);
