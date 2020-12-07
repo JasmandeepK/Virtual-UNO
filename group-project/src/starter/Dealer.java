@@ -1,3 +1,4 @@
+//this class deals with the deck and deals cards along with shuffling the deck
 package starter;
 import java.util.*;
 
@@ -7,6 +8,8 @@ class Dealer {
 
 	public Dealer(int num) {
 		deck = new UnoCard[num];		
+		
+		//the deck had to be individually assigned because the for loops where causing errors
 		
 		//Red Cards
 		deck[0] = new UnoCard(0,0);
@@ -128,6 +131,7 @@ class Dealer {
 		shuffle();
 	}
 	
+	//returns the deck
 	public UnoCard[] getDeck() {
 		return deck;
 	}
@@ -143,6 +147,7 @@ class Dealer {
 		}
 	}
 	
+	//shuffles the deck
 	public void shuffle() {
         Random randomNumber = new Random();
         //Randomize the deck
@@ -150,9 +155,10 @@ class Dealer {
             int rand = randomNumber.nextInt(107) + 1;
             queue.enqueue(deck[rand]);
         }
-   }
+	}
 	
-	 public UnoCard deal() { // Deals one card at a time
+	//deals a card; if the deck is empty it will add and shuffle cards
+	public UnoCard deal() { // Deals one card at a time
 		  if (Queue.isEmpty(queue)) { // If deck has no cards 
                shuffle();
           }
