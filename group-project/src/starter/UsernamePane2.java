@@ -36,7 +36,7 @@ public class UsernamePane2 extends GraphicsPane implements ActionListener {
 		
 		//next label
 		nextButton = new GButton("", 825, 600, 150, 70);
-		nextButton.setFillColor(Color.YELLOW);
+		nextButton.setFillColor(Color.ORANGE);
 		
 		//next label on top of next button
 		nextLabel = new GLabel("NEXT", 837, 650);

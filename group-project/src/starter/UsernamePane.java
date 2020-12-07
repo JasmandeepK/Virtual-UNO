@@ -32,7 +32,7 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 		
 		//next label
 		nextButton = new GButton("", 825, 600, 150, 70);
-		nextButton.setFillColor(Color.YELLOW);
+		nextButton.setFillColor(Color.ORANGE);
 		
 		//next label on top of next button
 		nextLabel = new GLabel("NEXT", 837, 650);
@@ -97,12 +97,10 @@ public class UsernamePane extends GraphicsPane implements ActionListener {
 		
 		if (obj == nextButton) {
 			program.setPlayer1Name(input);
-			System.out.println(program.getPlayer1Name());
 			program.switchToSecondUser();
 		}
 		if (obj == nextLabel) {
 			program.setPlayer1Name(input);
-			System.out.println(program.getPlayer1Name());
 			program.switchToSecondUser();
 		}
 	}

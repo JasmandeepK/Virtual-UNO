@@ -41,7 +41,7 @@ public class UnoPane extends GraphicsPane {
 		//Creates UNO button 
 		unoButton = new GButton("UNO", 1550,25, 200, 200);
 		unoButton.setColor(Color.WHITE);
-		unoButton.setFillColor(Color.YELLOW);
+		unoButton.setFillColor(Color.ORANGE);
 		
 		//Creates DRAW CARD button
 		drawCard = new GButton("DRAW CARD", 50, 100, 250, 100);
@@ -88,7 +88,7 @@ public class UnoPane extends GraphicsPane {
 		green = new GButton("", 950, 300, 300,300);
 		green.setFillColor(Color.GREEN);
 		yellow = new GButton("", 1400, 300, 300,300);
-		yellow.setFillColor(Color.YELLOW);
+		yellow.setFillColor(Color.ORANGE);
 	}
 	
 	public void updateCurrentColor() {
@@ -103,7 +103,7 @@ public class UnoPane extends GraphicsPane {
 			currentColor.setFillColor(Color.BLUE);
 		}
 		else if(currentCard.getColorType().getColor() == "Yellow") {
-			currentColor.setFillColor(Color.YELLOW);
+			currentColor.setFillColor(Color.ORANGE);
 		}
 		else if(currentCard.getColorType().getColor() == "Wild") {
 			if(colorChange!= null) {
@@ -117,7 +117,7 @@ public class UnoPane extends GraphicsPane {
 					currentColor.setFillColor(Color.BLUE);
 				}
 				else if(colorChange== "Yellow") {
-					currentColor.setFillColor(Color.YELLOW);
+					currentColor.setFillColor(Color.ORANGE);
 				}
 			}
 		}

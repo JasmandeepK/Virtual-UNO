@@ -31,7 +31,7 @@ public class MenuPane extends GraphicsPane {
 		
 		//play button
 		playButton = new GButton("", 815, 600, 170, 75);
-		playButton.setFillColor(Color.YELLOW);
+		playButton.setFillColor(Color.ORANGE);
 		
 		//play label on top of play button
 		playLabel = new GLabel("PLAY", 830, 655);
