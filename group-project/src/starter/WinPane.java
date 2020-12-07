@@ -14,17 +14,21 @@ public class WinPane extends GraphicsPane {
 		super();
 		program = app;
 		
+		//win label
 		winLabel = new GLabel("Congratulations!!!! You Won!!!!", 600, 200);
 		winLabel.setFont("TimesRoman-Bold-50");
+		
+		//thanks label thanks players for playing
 		thanks = new GLabel(" Thanks for Playing UNO", 650, 500);
 		thanks.setFont("TimesRoman-Bold-50");
+		
+		//balloon adds an image of balloons
 		balloon = new GImage("balloons.png", 200, 0);
 		balloon.setSize(1400, 900);
 	}
 	
 	@Override
 	public void showContents() {
-		// TODO Auto-generated method stub
 		program.add(balloon);
 		program.add(winLabel);
 		program.add(thanks);
@@ -33,7 +37,6 @@ public class WinPane extends GraphicsPane {
 
 	@Override
 	public void hideContents() {
-		// TODO Auto-generated method stub
 		program.remove(balloon);
 		program.remove(winLabel);
 		program.remove(thanks);
