@@ -14,7 +14,7 @@ public class WinPane extends GraphicsPane {
 		super();
 		program = app;
 		
-		winLabel = new GLabel(program.getWinningPlayerName() + " Wins! Congratulations!!!!", 600, 200);
+		winLabel = new GLabel("Congratulations!!!! You Won!!!!", 600, 200);
 		winLabel.setFont("TimesRoman-Bold-50");
 		thanks = new GLabel(" Thanks for Playing UNO", 650, 500);
 		thanks.setFont("TimesRoman-Bold-50");

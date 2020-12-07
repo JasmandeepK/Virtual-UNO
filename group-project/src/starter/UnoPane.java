@@ -60,8 +60,8 @@ public class UnoPane extends GraphicsPane {
 		playerHand2.setColor(Color.BLACK);
 		
 		//Initializes both players
-		player1 = new Player(0);
-		player2 = new Player(1);
+		player1 = program.getPlayer1();
+		player2 = program.getPlayer2();
 		
 		//Initializes deck
 		deck = new Dealer(108);
@@ -366,12 +366,12 @@ public class UnoPane extends GraphicsPane {
 					showContents();
 				}
 				if(player1.getNumCards() == 0 && unoButtonPressed) {
-					winnerName = player2.getPlayerName();
+					winnerName = "Player 1";
 					hideContents();
 					program.switchToWinPane();
 				}
 				else if(player2.getNumCards() == 0 && unoButtonPressed) {
-					winnerName = player1.getPlayerName();
+					winnerName = "Player 2";
 					hideContents();
 					program.switchToWinPane();
 				}

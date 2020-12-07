@@ -9,7 +9,8 @@ public class MainApplication extends GraphicsApplication {
 	private UnoPane unoPane;
 	private WinPane winPane;
 	private SwitchPane switchPane;
-
+	private Player player1 = new Player(0);
+	private Player player2 = new Player(1);
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
@@ -27,12 +28,21 @@ public class MainApplication extends GraphicsApplication {
 	public String getPlayer1Name() {
 		return unoPane.getPlayer1().getPlayerName();
 	}
+	
 	public void setPlayer1Name(String name) {
-		unoPane.getPlayer1().setName(name);
+		player1.setName(name);
 	}
 	
 	public void setPlayer2Name(String name) {
-		unoPane.getPlayer2().setName(name);
+		player2.setName(name);
+	}
+	
+	public Player getPlayer1() {
+		return player1;
+	}
+	
+	public Player getPlayer2() {
+		return player2;
 	}
 	
 	public String getWinningPlayerName() {
