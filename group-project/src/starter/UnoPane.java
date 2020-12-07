@@ -1,3 +1,5 @@
+//This file displays the game play of Uno
+
 package starter;
 
 import java.awt.Color;
@@ -12,6 +14,8 @@ public class UnoPane extends GraphicsPane {
 	private GImage currCardDisplayed;
 	private GLabel playerHand1;
 	private GLabel playerHand2;
+	public static final int playerHandX = 1600;
+	public static final int playerHandY = 875;
 	private Player player1;
 	private Player player2;
 	private Dealer deck;
@@ -46,12 +50,12 @@ public class UnoPane extends GraphicsPane {
 		drawCard.setFillColor(Color.RED);
 		
 		//Shown when Player 1's hand is visible 
-		playerHand1 = new GLabel("Player 1", 1600,875);
+		playerHand1 = new GLabel("Player 1", playerHandX, playerHandY);
 		playerHand1.setFont("TimesRoman-Bold-45");
 		playerHand1.setColor(Color.BLACK);
 		
 		//Shown when Player 2's hand is visible
-		playerHand2 = new GLabel("Player 2", 1600,875);
+		playerHand2 = new GLabel("Player 2", playerHandX, playerHandY);
 		playerHand2.setFont("TimesRoman-Bold-45");
 		playerHand2.setColor(Color.BLACK);
 		

@@ -19,36 +19,40 @@ public class MenuPane extends GraphicsPane {
 	private GImage card3;
 	private GImage card4;
 	private GImage card5;
+	public static final int cardSizeX = 400;
+	public static final int cardSizeY = 570;
+	public static final int cardPosY = 210;
+
 	
 	public MenuPane(MainApplication app) {
 		super();
 		program = app;
 		
 		//play button
-		playButton = new GButton("", 825, 600, 158, 65);
+		playButton = new GButton("", 825, 600, 170, 75);
 		playButton.setFillColor(Color.YELLOW);
 		
 		//play label on top of play button
-		playLabel = new GLabel("PLAY", 837, 650);
-		playLabel.setFont("TimesRoman-Bold-50");
+		playLabel = new GLabel("PLAY", 842, 655);
+		playLabel.setFont("TimesRoman-Bold-52");
 		playLabel.setColor(Color.WHITE);
 		
 		//welcome label
-		welcomeLabel = new GLabel("WELCOME TO VIRTUAL UNO", 150, 150);
+		welcomeLabel = new GLabel("WELCOME TO VIRTUAL UNO", 170, 150);
 		welcomeLabel.setFont("TimesRoman-Bold-100");
 		welcomeLabel.setColor(Color.RED);
 		
 		//cards
-		card1 = new GImage("Wild/+4.png", 350, 200);
-		card1.setSize(400, 572);
-		card2 = new GImage("Blue/+2.png", 525, 195);
-		card2.setSize(400, 582);
-		card3 = new GImage("Green/1.png", 700, 200);
-		card3.setSize(400, 570);
-		card4 = new GImage("Yellow/3.png", 875, 200);
-		card4.setSize(400, 570);
-		card5 = new GImage("Red/reverse.png", 1050, 200);
-		card5.setSize(400, 570);
+		card1 = new GImage("Wild/+4.png", 350, cardPosY);
+		card1.setSize(cardSizeX, cardSizeY + 2);
+		card2 = new GImage("Blue/+2.png", 525, cardPosY - 5);
+		card2.setSize(cardSizeX, cardSizeY + 12);
+		card3 = new GImage("Green/1.png", 700, cardPosY);
+		card3.setSize(cardSizeX, cardSizeY);
+		card4 = new GImage("Yellow/3.png", 875, cardPosY);
+		card4.setSize(cardSizeX, cardSizeY);
+		card5 = new GImage("Red/reverse.png", 1050, cardPosY);
+		card5.setSize(cardSizeX, cardSizeY);
 	}
 
 	@Override
