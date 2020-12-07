@@ -66,6 +66,7 @@ public class UnoPane extends GraphicsPane {
 			player2.addToHand(deck.deal());
 		}
 		
+		
 		//current card
 		currentCard = deck.deal();
 		while(currentCard.getColorType().getColor() == "Wild") {
@@ -288,9 +289,9 @@ public class UnoPane extends GraphicsPane {
 		else if(currentCard.getCardValue().getValue() == "skip") {
 			return true;
 		}
-		else if(currentCard.getCardValue().getValue() == "Wild") {
-			return true;
-		}
+//		else if(currentCard.getCardValue().getValue() == "Wild") {
+//			return true;
+//		}
 		return false;
 	}
 	
@@ -339,8 +340,7 @@ public class UnoPane extends GraphicsPane {
 				if(!checkCardForSwitch()) {
 					program.switchToSwitchPane();
 				}
-				else if(currentCard.getCardValue().getValue() == "Wild"){
-					wildCase = true;
+				else if(cardClicked.getCardValue().getValue() == "Wild") {
 					showContents();
 					program.switchToSwitchPane();
 				}
