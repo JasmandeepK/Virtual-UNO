@@ -1,3 +1,4 @@
+//This class contains the value of a card:number, +2, reverse, skip, and wild
 package starter;
 
 public class CardValue {
@@ -6,10 +7,13 @@ public class CardValue {
 	CardValue(int num) {
 		value = num;
 	}
+	
+	//sets the card value
 	public void setValue(int num) {
 		this.value = num;
 	}
 	
+	//returns the value in a string form
 	public String getValue() {
 		if(value == 0) {
 			return "0";
