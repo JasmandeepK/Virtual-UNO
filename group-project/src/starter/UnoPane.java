@@ -14,7 +14,7 @@ public class UnoPane extends GraphicsPane {
 	private GImage currCardDisplayed;
 	private GLabel playerHand1;
 	private GLabel playerHand2;
-	public static final int playerHandX = 1600;
+	public static final int playerHandX = 1500;
 	public static final int playerHandY = 875;
 	private Player player1;
 	private Player player2;
