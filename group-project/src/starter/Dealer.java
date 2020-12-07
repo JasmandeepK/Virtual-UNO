@@ -6,31 +6,9 @@ class Dealer {
 	private Queue queue = new Queue(108);
 
 	public Dealer(int num) {
-		deck = new UnoCard[num];
-//		int start = 0;
-//		for(int i = 0; i < 4; i ++) {
-//			for(int j = 0; j < 13; j++) {
-//				if(j == 0) {	// one 0 card value per color	
-//					deck[start] = new UnoCard(i,j);
-//					start++;
-//				}
-//				else {	//2 of card values for each number exclude wild cards
-//					deck[start] = new UnoCard(i,j);
-//					start++;
-//					deck[start] = new UnoCard(i,j);
-//					start++;
-//				}
-//			}
-//		}
-//		for(int i = 0; i < 4; i++) {	//4 wild cards and 4 +4 wild cards in UNO deck
-//			deck[start] = new UnoCard(4,13);
-//			start++;
-//			deck[start] = new UnoCard(4,14);
-//			start++;
-//		}
-//		System.out.println(start);
+		deck = new UnoCard[num];		
 		
-		//
+		//Red Cards
 		deck[0] = new UnoCard(0,0);
 		deck[1] = new UnoCard(0,1);
 		deck[2] = new UnoCard(0,1);
@@ -57,7 +35,7 @@ class Dealer {
 		deck[23] = new UnoCard(0,12);
 		deck[24] = new UnoCard(0,12);
 		
-		//
+		//Yellow Cards
 		deck[25] = new UnoCard(1,0);
 		deck[26] = new UnoCard(1,1);
 		deck[27] = new UnoCard(1,1);
@@ -84,7 +62,7 @@ class Dealer {
 		deck[48] = new UnoCard(1,12);
 		deck[49] = new UnoCard(1,12);
 
-		//
+		//Blue Cards
 		deck[50] = new UnoCard(2,0);
 		deck[51] = new UnoCard(2,1);
 		deck[52] = new UnoCard(2,1);
@@ -111,7 +89,7 @@ class Dealer {
 		deck[73] = new UnoCard(2,12);
 		deck[74] = new UnoCard(2,12);
 		
-		//
+		//Green Cards
 		deck[75] = new UnoCard(3,0);
 		deck[76] = new UnoCard(3,1);
 		deck[77] = new UnoCard(3,1);
@@ -138,7 +116,7 @@ class Dealer {
 		deck[98] = new UnoCard(3,12);
 		deck[99] = new UnoCard(3,12);
 		
-		//
+		//Wild Cards
 		deck[100] = new UnoCard(4,13);
 		deck[101] = new UnoCard(4,13);
 		deck[102] = new UnoCard(4,13);
