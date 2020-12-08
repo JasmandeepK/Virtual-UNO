@@ -1,4 +1,4 @@
-//This class displays the user input for player 2's username
+//This class displays the user input for player 1's username
 package starter;
 
 import java.awt.event.ActionEvent;

@@ -1,3 +1,4 @@
+//The class displays the user input for player 2's username 
 package starter;
 
 import java.awt.Color;
@@ -64,6 +65,8 @@ public class UsernamePane2 extends GraphicsPane implements ActionListener {
 			setName(input);
 		}
 	}
+	
+	//saves the username in the backend
 	private void setName(String name) {
 		if(name.length()==0) {
 			userInputted.setText("");
