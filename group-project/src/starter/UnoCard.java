@@ -1,3 +1,4 @@
+//This class hold uno cards with the valus and color
 package starter;
 
 public class UnoCard {
@@ -16,18 +17,22 @@ public class UnoCard {
 		value = new CardValue(b);
 	}
 	
+	//sets the location of the card on the screen
 	public void setCoordinates(int[] location) {
 		coordinates = location;
 	}
 	
+	//gets the location of the cards
 	public int[] getCoordinates() {
 		return coordinates;
 	}
 	
+	//gets the color of the cards
 	public ColorType getColorType() {
 		return type;
 	}
 	
+	//gets the value of the cards
 	public CardValue getCardValue() {
 		return value;
 	}
