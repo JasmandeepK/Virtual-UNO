@@ -78,10 +78,12 @@ public class UnoPane extends GraphicsPane {
 		while(currentCard.getColorType().getColor() == "Wild") {
 			currentCard = deck.deal();
 		}
-
+		
+		//Current color button
 		currentColor = new GButton("Current Color", 600, 25, 200, 200);
 		currentColor.setColor(Color.WHITE);
 		
+		//For wild case
 		prompt = new GLabel("Choose a Color:", 700, 100);
 		prompt.setFont("TimesRoman-Bold-50");
 		red = new GButton("", 50, 300, 300,300);
@@ -94,6 +96,7 @@ public class UnoPane extends GraphicsPane {
 		yellow.setFillColor(Color.ORANGE);
 	}
 	
+	//updates the current color button based off of the current color if a color is choosen
 	public void updateCurrentColor() {
 		//creates current color
 		if(currentCard.getColorType().getColor() == "Red") {
@@ -126,14 +129,17 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	//gets player 1
 	public Player getPlayer1() {
 		return player1;
 	}
 	
+	//gets player 2
 	public Player getPlayer2() {
 		return player2;
 	}
 	
+	//displays the current players hand
 	public void displayCards(Player player) {
 		for(int i = 0; i < player.getPlayerHand().length; i++) {
 			if(player.getPlayerHand()[i] != null) {
@@ -149,6 +155,7 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	//updates and displays the current card
 	public void displayCurrentCard(UnoCard card) {
 		String path = card.getColorType().getColor() + "/" + card.getCardValue().getValue() + ".png";
 		currCardDisplayed = new GImage(path, 850, 25);
@@ -156,6 +163,7 @@ public class UnoPane extends GraphicsPane {
 		program.add(currCardDisplayed);	
 	}
 	
+	//gets the current player playing based on a boolean variable
 	public Player getCurrentPlayer() {
 		if(player1Turn) {
 			return player2;	
@@ -165,6 +173,7 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	//gets the obj pressed's location
 	public int[] getObjSpace(GObject obj) {
 		int[] space = new int[4];
 		space[0] = (int) obj.getX();
@@ -174,6 +183,7 @@ public class UnoPane extends GraphicsPane {
 		return space;
 	}
 	
+	//checks what card the card pressed on matches in the player's hand
 	public UnoCard userCardPressed(GObject obj) {
 		int[] location = getObjSpace(obj);
 		for(int i = 0; i < getCurrentPlayer().playerHand.length; i++) {
@@ -193,6 +203,7 @@ public class UnoPane extends GraphicsPane {
 		return null;
 	}
 	
+	//checks if the card pressed is a valid play
 	public boolean validateCard(GObject obj) {
 		UnoCard card = userCardPressed(obj);
 		if(card != null) {
@@ -212,6 +223,7 @@ public class UnoPane extends GraphicsPane {
 		return false;
 	}
 	
+	//checks if the card clicked matches a card in the player hand
 	public boolean checkCardMatch(UnoCard card1, UnoCard card2) {
 		if(card1.getColorType().getColor() == card2.getColorType().getColor() &&
 			card1.getCardValue().getValue() == card2.getCardValue().getValue() &&
@@ -224,6 +236,7 @@ public class UnoPane extends GraphicsPane {
 		return false;
 	}
 	
+	//removes a card from the current player's hand
 	public void changeHands() {
 		currentCard = cardClicked;
 		for(int i = 0; i < getCurrentPlayer().getPlayerHand().length; i++) {
@@ -236,6 +249,7 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	//changes the current player's turn based on the card
 	public void affectPlayerTurn() {
 		if(getCurrentPlayer() == player1) {
 			player1Turn = true;
@@ -245,6 +259,7 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	//affects the next player by skipping their turn and adding cards based on the card played
 	public void affectNextPlayer() {
 		if(currentCard.getCardValue().getValue() == "Wild") {
 			affectPlayerTurn();
@@ -278,6 +293,7 @@ public class UnoPane extends GraphicsPane {
 		}
 	}
 	
+	//penalises players if the play the last card without pressing uno
 	public void penalty() {
 		if (player1.getNumCards() == 0 && !unoButtonPressed) {
 			for (int i=0; i<2; i++) {
@@ -291,6 +307,7 @@ public class UnoPane extends GraphicsPane {
 		} 
 	}
 	
+	//checks when to ask to switch players
 	public boolean checkCardForSwitch() {
 		if(currentCard.getCardValue().getValue() == "+2") {
 			return true;
@@ -304,9 +321,6 @@ public class UnoPane extends GraphicsPane {
 		else if(currentCard.getCardValue().getValue() == "skip") {
 			return true;
 		}
-//		else if(currentCard.getCardValue().getValue() == "Wild") {
-//			return true;
-//		}
 		return false;
 	}
 	
